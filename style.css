@@ -603,7 +603,7 @@ th {
     margin: 0 auto; /* Horizontale Zentrierung */
     width: 90%; /* Maximale Breite auf Mobilgeräten */
     max-width: 600px; /* Maximale Breite für größere Bildschirme */
-    padding: 50px 30px; /* Mehr Padding oben, unten, rechts und links */
+    padding: 100px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
     position: relative; /* Position für mögliche weitere Anpassungen */
   }
 }
