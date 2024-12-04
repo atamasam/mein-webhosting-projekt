@@ -590,6 +590,13 @@ th {
     margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
   }
 
+  /* Small Buttons - Unsichtbar und deaktiviert */
+  .small-button {
+    display: none; /* Buttons unsichtbar machen */
+    pointer-events: none; /* Deaktiviert die Interaktion mit den Buttons */
+    opacity: 0; /* Unsichtbar */
+  }
+
   /* Lecture Container */
   #lectureContainer {
     display: block; /* Sicherstellen, dass es sichtbar ist */
