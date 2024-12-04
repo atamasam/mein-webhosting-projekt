@@ -590,35 +590,31 @@ th {
     margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
   }
 
-  /* Small Buttons */
   .small-button {
-    width: auto;
-    padding: 4px 9px; /* Weitere Reduktion des Paddings, um die Buttons schmaler zu machen */
-    font-size: 12px; /* Noch kleinere Schriftgröße für die Buttons */
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    background-color: #007aff; /* Apple Blau */
-    color: white;
-    transition: background-color 0.3s ease;
-    position: fixed; /* Fixierte Position auf dem Bildschirm */
-    bottom: 25%; /* Positioniert die Buttons im unteren Viertel */
-    left: 10%; /* Abstand von der linken Seite */
-    right: 10%; /* Abstand von der rechten Seite */
-    z-index: 1000; /* Sicherstellen, dass die Buttons immer oben sind */
-    opacity: 1; /* Sichtbar auf mobilen Geräten */
+    position: fixed; /* Fixierte Position */
+    bottom: 10%; /* Abstand vom unteren Rand */
+    width: 40px; /* Kleinere Breite */
+    height: 40px; /* Kleinere Höhe */
+    font-size: 12px; /* Kleinere Schriftgröße */
+    border-radius: 50%; /* Runde Buttons */
+    background-color: #007aff; /* Button-Farbe */
+    color: white; /* Schriftfarbe */
+    display: flex; /* Zentrierter Text */
+    align-items: center; /* Vertikal zentrieren */
+    justify-content: center; /* Horizontal zentrieren */
+    z-index: 1000; /* Immer im Vordergrund */
   }
 
   #backButton {
-    left: 10px; /* Kleiner Abstand von der linken Wand */
+    left: 20px; /* Abstand von der linken Seite */
   }
 
   #nextButton {
-    right: 10px; /* Kleiner Abstand von der rechten Wand */
+    right: 20px; /* Abstand von der rechten Seite */
   }
 
   .small-button:hover {
-    background-color: #005bb5; /* Dunkleres Blau */
+    background-color: #005bb5; /* Etwas dunklere Farbe beim Hover */
   }
 
   /* Lecture Container */
