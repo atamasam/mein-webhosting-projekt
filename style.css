@@ -594,7 +594,7 @@ th {
 
   /* Searchbar */
   .navbar .searchbar {
-    width: 70%; /* Searchbar schmaler */
+    width: 20%; /* Searchbar schmaler */
     max-width: 300px; /* Maximale Breite für die Searchbar */
     margin: 0 auto; /* Zentriert die Searchbar */
     padding: 8px; /* Weniger Innenabstand */
