@@ -561,8 +561,6 @@ th {
 }
 
 /* Responsive Design */
-/* Responsive Design */
-/* Responsive Design */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
     position: absolute;
@@ -595,8 +593,8 @@ th {
   /* Buttons */
   .small-button {
     width: auto;
-    padding: 5px 12px; /* Reduziertes Padding, halb so breit */
-    font-size: 14px; /* Kleinere Schriftgröße */
+    padding: 4px 9px; /* Weitere Reduktion des Paddings, um die Buttons schmaler zu machen */
+    font-size: 12px; /* Noch kleinere Schriftgröße für die Buttons */
     cursor: pointer;
     border: none;
     border-radius: 8px;
