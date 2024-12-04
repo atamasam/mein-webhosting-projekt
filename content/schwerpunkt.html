@@ -1,111 +1,72 @@
 <div>
-  <h2>Schwerpunkt: Fortgeschrittene JavaScript-Techniken und Best Practices</h2>
+  <h2>Schwerpunkt: Web Hosting mit GitHub Pages</h2>
 
   <h4>Problemstellung</h4>
   <p>
-    Wenn man eine Webanwendung von Grund auf mit plain HTML, CSS und JavaScript
-    erstellt, stößt man schnell auf viele Herausforderungen. Besonders bei
-    komplexeren Projekten, die eine hohe Interaktivität, Skalierbarkeit oder
-    eine saubere Struktur benötigen, kann die Entwicklung mit nur grundlegenden
-    Technologien schnell unübersichtlich und ineffizient werden. Man muss viel
-    Code selbst schreiben, um wiederverwendbare Komponenten, dynamische Inhalte
-    oder das Management des Zustands der Anwendung zu handhaben.
+    Nachdem man eine Webanwendung erstellt hat, stellt sich die Frage: Wie kann ich diese Anwendung öffentlich zugänglich machen, sodass sie von jedem über das Internet aufgerufen werden kann? Viele Entwickler stehen vor der Herausforderung, ihre Projekte schnell und einfach online zu stellen, ohne sich mit komplexen Server-Setups oder Hosting-Anbietern auseinandersetzen zu müssen. Eine einfache und kostengünstige Lösung ist Web Hosting über Plattformen wie GitHub Pages.
   </p>
 
   <h4>Die Idee</h4>
   <p>
-    Eine Möglichkeit, diese Probleme zu umgehen, ist die Verwendung von
-    Frameworks. Frameworks bieten vorgefertigte Lösungen, die einem Entwickler
-    viele wiederkehrende Aufgaben abnehmen. Sie bringen eine strukturierte
-    Architektur mit und erleichtern es, skalierbare Anwendungen zu entwickeln,
-    ohne sich mit den grundlegenden Details beschäftigen zu müssen.
+    GitHub Pages ist eine einfache Möglichkeit, statische Websites zu hosten, die direkt aus einem GitHub-Repository geladen werden. Du kannst einfach dein Projekt in einem Repository speichern und mit GitHub Pages dein Webprojekt öffentlich zugänglich machen. Dies ist eine großartige Lösung für kleine Projekte, Portfolio-Seiten und Dokumentationen.
   </p>
 
-  <h4>Warum Frameworks?</h4>
+  <h4>Warum Web Hosting mit GitHub Pages?</h4>
   <p>
-    Frameworks wie React, Angular oder Vue.js bieten ein Framework, das
-    automatisch den Zustand der Anwendung verwaltet und die Benutzeroberfläche
-    effizient aktualisiert. Frameworks ermöglichen es, Code in kleine,
-    wiederverwendbare Komponenten zu unterteilen. Ohne Frameworks muss man diese
-    Struktur selbst entwickeln und viel mehr Zeit für Aufgaben aufwenden, die in
-    einem Framework bereits implementiert sind.
+    GitHub Pages bietet eine Reihe von Vorteilen:
+    <ul>
+      <li>Kostenloses Hosting für öffentliche Repositories.</li>
+      <li>Automatisches Deployment direkt aus GitHub, ohne zusätzliche Server-Infrastruktur.</li>
+      <li>Einfach zu integrieren mit deinem bestehenden GitHub-Repository.</li>
+      <li>Unterstützt HTML, CSS und JavaScript, was es ideal für statische Seiten macht.</li>
+      <li>Ermöglicht eine benutzerdefinierte Domain oder die Nutzung einer GitHub-Domain.</li>
+    </ul>
   </p>
 
-  <h4>Wie ohne Frameworks</h4>
+  <h4>Wie funktioniert Web Hosting mit GitHub Pages?</h4>
+  <p>Web Hosting bezieht sich auf den Prozess, bei dem Web-Dateien auf einem Server gespeichert werden und über das Internet zugänglich sind. Bei GitHub Pages handelt es sich um eine Plattform, die speziell für statische Websites entwickelt wurde. So funktioniert es:</p>
+  <ul>
+    <li><strong>Speicherung der Dateien:</strong> Deine Website-Dateien (HTML, CSS, JavaScript) werden in einem GitHub-Repository gespeichert. Ein GitHub-Repository fungiert als Container für all diese Dateien.</li>
+    <li><strong>Automatisches Hosting:</strong> GitHub übernimmt das Hosting, indem es die Dateien aus dem Repository auf einem Server abruft und über das Internet verfügbar macht. Dies geschieht ohne die Notwendigkeit einer separaten Server-Infrastruktur.</li>
+    <li><strong>Rendering der Seite:</strong> GitHub Pages verwendet Jekyll, ein statisches Site-Generator-Tool, um die Website zu rendern. Das bedeutet, dass alle HTML-Dateien, die du hochlädst, automatisch aufbereitet und angezeigt werden.</li>
+    <li><strong>Verwendung von HTTP und HTTPS:</strong> GitHub stellt deine Website über HTTP bereit und unterstützt HTTPS für sichere Verbindungen. Das bedeutet, dass du sicherstellen kannst, dass deine Seite verschlüsselt übertragen wird, wenn du sie mit einer benutzerdefinierten Domain verwendest.</li>
+    <li><strong>Content Delivery Network (CDN):</strong> GitHub Pages verwendet ein CDN, um die statischen Dateien geografisch auf verschiedene Server weltweit zu verteilen. Dies reduziert die Ladezeit, da der Benutzer immer den nächstgelegenen Server anfragt.</li>
+    <li><strong>Automatische Updates:</strong> Wenn du Änderungen an deinem Repository vornimmst und diese veröffentlichst (durch einen Git Commit und Push), werden die Änderungen sofort auf der Website reflektiert. GitHub Pages bietet damit ein einfaches Deployment-System ohne manuelles Eingreifen.</li>
+  </ul>
+
+  <h4>Kurzanleitung zur Nutzung von GitHub Pages</h4>
   <p>
-    Stellen wir uns vor, wir möchten eine dynamische Liste von Items erstellen,
-    die sich beim Klicken auf einen Button ändern. Ohne ein Framework müssen wir
-    den Zustand der Anwendung selbst verwalten, was bedeutet, dass wir die
-    DOM-Elemente direkt manipulieren müssen, wenn wir den Inhalt aktualisieren
-    wollen. Hier ist ein einfaches Beispiel, wie man das in plain HTML und
-    JavaScript umsetzen würde:
+    Hier sind die Schritte im Detail:
   </p>
-  <pre><code>
-<!-- Plain HTML und JavaScript -->
+  <ol>
+    <li><strong>Repository erstellen:</strong> Erstelle ein neues Repository auf GitHub, wenn du noch keines hast.</li>
+    <li><strong>Projekt hochladen:</strong> Lade deine Web-Dateien (HTML, CSS, JS) in das Repository hoch.</li>
+    <li><strong>GitHub Pages aktivieren:</strong> Gehe zu den Einstellungen des Repositories und scrolle nach unten zum Abschnitt "GitHub Pages". Wähle dort den Branch aus, den du verwenden möchtest (in der Regel "main" oder "master").</li>
+    <li><strong>Seite aufrufen:</strong> GitHub stellt dir nach der Aktivierung eine URL zur Verfügung, über die du deine Website aufrufen kannst, z. B. "https://dein-benutzername.github.io/dein-repository-name/".</li>
+    <h4>Beispiel-Link</h4>
+    <p>
+      Um das Projekt live zu sehen, kannst du es hier aufrufen:
+      <a href="https://atamasam.github.io/mein-webhosting-projekt/" target="_blank">Web Hosting Projekt auf GitHub Pages</a>
+    </p>
+  </ol>
 
-<ul id="itemList"></ul>
-<button onclick="addItem()">Add Item</button>
-
-<script src="main.js"></script>
-  </code></pre>
-
-  <h4>Was Frameworks bieten</h4>
+  <h4>Vorteile des Web Hostings mit GitHub Pages</h4>
   <p>
-    In einem Framework wie React oder Vue.js könnte der gleiche Vorgang deutlich
-    eleganter umgesetzt werden. Man müsste sich nicht um das manuelle
-    Aktualisieren des DOMs kümmern, und der Zustand der Anwendung würde
-    automatisch aktualisiert werden, sobald sich die Daten ändern.
+    Web Hosting über GitHub Pages hat zahlreiche Vorteile:
+    <ul>
+      <li>Es ist völlig kostenlos und erfordert keine zusätzlichen Kosten für Hosting-Dienste.</li>
+      <li>Es ermöglicht schnelle Deployments und Updates, da Änderungen direkt über GitHub vorgenommen werden können.</li>
+      <li>Ideal für Portfolio-Seiten, Blogs oder Dokumentationen, da es nur statische Dateien benötigt.</li>
+    </ul>
   </p>
-
-  <p>
-    Der Hauptvorteil von Frameworks ist, dass sie uns eine strukturierte Lösung
-    bieten, die wiederverwendbare Komponenten, automatische DOM-Updates und eine
-    saubere Trennung von Logik und Darstellung ermöglicht. Das spart viel Zeit
-    und Aufwand, insbesondere bei großen und komplexen Anwendungen.
-  </p>
-
-  <h4>Die Struktur ohne Framework</h4>
-  <p>
-    Auch ohne Framework müssen wir den Zustand der Anwendung manuell verwalten
-    und dafür sorgen, dass der DOM korrekt aktualisiert wird. Hier ist eine
-    einfache Implementierung in JavaScript:
-  </p>
-  <pre><code>
-let items = [];
-
-function addItem() {
-  items.push('New Item');
-  renderItems();
-}
-
-function renderItems() {
-  const itemList = document.getElementById('itemList');
-  itemList.innerHTML = '';  // Clear existing items
-  items.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    itemList.appendChild(li);
-  });
-}
-  </code></pre>
 
   <h4>Zusammenfassung</h4>
   <p>
-    Ohne ein Framework müssen wir uns um viele Details kümmern, die in einem
-    Framework bereits erledigt sind. Die Verwendung eines Frameworks spart Zeit
-    und macht den Code wartbarer und skalierbarer. Frameworks wie React bieten
-    uns eine klar strukturierte Lösung, die uns bei der Entwicklung großer und
-    komplexer Anwendungen hilft, indem sie den Zustand automatisch verwalten und
-    eine saubere Trennung zwischen der Logik und der Darstellung ermöglichen.
+    GitHub Pages ist eine ideale Lösung für die einfache und kostengünstige Veröffentlichung von statischen Websites. Die Nutzung von GitHub als Hosting-Plattform bietet viele Vorteile, darunter einfache Integration, kostenloses Hosting und schnelle Bereitstellung. Besonders für Entwickler, die kleine Projekte oder Portfolio-Seiten erstellen, ist GitHub Pages eine ausgezeichnete Wahl.
   </p>
 
   <h4>Fazit</h4>
   <p>
-    Frameworks sind nicht immer notwendig, insbesondere bei kleineren Projekten,
-    aber sie können den Entwicklungsprozess erheblich erleichtern, wenn die
-    Anforderungen an die Anwendung steigen. Sie bieten eine strukturierte,
-    saubere und wiederverwendbare Lösung für komplexe Webanwendungen. Ihre
-    Nutzung führt zu besser wartbarem und skalierbarem Code und hilft dabei,
-    viele typische Entwicklungsprobleme effizient zu lösen.
+    Web Hosting mit GitHub Pages ist eine einfache und effektive Möglichkeit, um Websites öffentlich zugänglich zu machen, ohne sich mit Server- oder Hosting-Anbietern auseinandersetzen zu müssen. Es ist besonders nützlich für kleine Projekte und eignet sich hervorragend, um schnell eine Präsenz im Web zu schaffen. Durch die Verbindung von Git und GitHub kannst du Änderungen effizient verwalten und sicherstellen, dass deine Website immer aktuell bleibt.
   </p>
 </div>
