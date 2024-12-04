@@ -559,7 +559,6 @@ th {
 .form-button:hover {
   background-color: #45a049;
 }
-
 /* Responsive Design für Mobile */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
@@ -586,45 +585,23 @@ th {
   /* Container */
   .container {
     padding: 20px; /* Reduziertes Padding, gleich auf allen Seiten */
-    max-width: 90%; /* Breite flexibler auf Mobilgeräten */
-    margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
+    max-width: 90%; /* Maximale Breite auf 90% setzen */
+    margin: 120px 20px 20px; /* Padding anpassen */
   }
 
-  .small-button {
-    width: 80px; /* Breitere Buttons */
-    height: 80px;
-    font-size: 16px;
-    border-radius: 12px; /* Abgerundete Ecken */
-    background-color: #007aff;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed; /* Fixierte Position */
-    bottom: 10%; /* Positioniert Buttons im unteren Bereich */
-    opacity: 1; /* Buttons sind sichtbar */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-  }
-
-  #backButton {
-    left: 10%; /* Etwas weiter links */
-  }
-
+  /* Buttons ausblenden */
+  .small-button,
+  #backButton,
   #nextButton {
-    right: 10%; /* Etwas weiter rechts */
+    display: none !important; /* Verhindert das Anzeigen der Buttons */
   }
 
-  .small-button:hover {
-    background-color: #005bb5; /* Hover-Effekt */
+  /* Buttons animiert ausblenden, wenn sie sichtbar sind */
+  .small-button.show {
+    display: none !important; /* Verhindert, dass die Buttons in der mobilen Ansicht erscheinen */
   }
 
-  /* Lecture Container */
-  #lectureContainer {
-    display: block; /* Sicherstellen, dass es sichtbar ist */
-    margin: 0 auto; /* Horizontale Zentrierung */
-    width: 90%; /* Maximale Breite auf Mobilgeräten */
-    max-width: 600px; /* Maximale Breite für größere Bildschirme */
-    padding: 100px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
-    position: relative; /* Position für mögliche weitere Anpassungen */
+  .small-button.hide {
+    display: none !important; /* Auch wenn der Fade-Out aktiviert wird, werden die Buttons nicht angezeigt */
   }
 }
