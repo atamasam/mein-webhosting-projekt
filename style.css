@@ -607,11 +607,11 @@ th {
   }
 
   #backButton {
-    left: 6px; /* Kleiner Abstand von der linken Wand */
+    left: 10px; /* Kleiner Abstand von der linken Wand */
   }
 
   #nextButton {
-    right: 6px; /* Kleiner Abstand von der rechten Wand */
+    right: 10px; /* Kleiner Abstand von der rechten Wand */
   }
 
   .small-button.show {
@@ -624,5 +624,14 @@ th {
 
   .small-button:hover {
     background-color: #005bb5; /* Dunkleres Blau */
+  }
+
+  /* Zentrieren des lectureContainers */
+  #lectureContainer {
+    display: block; /* Sicherstellen, dass es sichtbar ist, wenn benötigt */
+    margin: 0 auto; /* Horizontale Zentrierung */
+    width: 90%; /* Maximale Breite auf Mobilgeräten */
+    max-width: 600px; /* Maximale Breite für größere Bildschirme */
+    padding: 20px;
   }
 }
