@@ -591,31 +591,31 @@ th {
   }
 
   .small-button {
+    width: 80px; /* Breitere Buttons */
+    height: 80px;
+    font-size: 16px;
+    border-radius: 12px; /* Abgerundete Ecken */
+    background-color: #007aff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed; /* Fixierte Position */
-    bottom: 15%; /* Position im unteren Viertel */
-    width: 60px; /* Größe der Buttons */
-    height: 60px;
-    font-size: 14px; /* Kleinere Schriftgröße */
-    border-radius: 12px; /* Leicht abgerundete Ecken */
-    background-color: #007aff; /* Standardfarbe der Buttons */
-    color: white; /* Schriftfarbe */
-    display: flex; /* Zentrierter Text */
-    align-items: center; /* Vertikal zentriert */
-    justify-content: center; /* Horizontal zentriert */
+    bottom: 10%; /* Positioniert Buttons im unteren Bereich */
+    opacity: 1; /* Buttons sind sichtbar */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-    z-index: 1000; /* Buttons immer sichtbar */
   }
 
   #backButton {
-    left: 25%; /* Etwas seitlich, nicht ganz am Rand */
+    left: 10%; /* Etwas weiter links */
   }
 
   #nextButton {
-    right: 25%; /* Etwas seitlich, nicht ganz am Rand */
+    right: 10%; /* Etwas weiter rechts */
   }
 
   .small-button:hover {
-    background-color: #005bb5; /* Hover-Farbe */
+    background-color: #005bb5; /* Hover-Effekt */
   }
 
   /* Lecture Container */
