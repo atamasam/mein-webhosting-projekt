@@ -563,15 +563,16 @@ th {
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
-    max-width: 200px; /* Reduziert die maximale Breite */
-    width: 80%; /* Dynamische Anpassung für verschiedene Geräte */
-    left: auto; /* Entfernt die fixe Zentrierung */
-    transform: none; /* Entfernt das Verschieben */
-    margin: 0 auto; /* Zentriert über den Rand */
+    position: absolute;
+    left: 50%; /* Zentral bleibt erhalten */
+    transform: translateX(-50%); /* Zentriert horizontal */
+    max-width: 200px; /* Begrenzte Breite */
+    width: 80%; /* Dynamische Breite */
   }
 
   .navbar-search input {
-    padding: 4px 8px; /* Minimalistisches Padding */
-    font-size: 14px; /* Kleinere Schriftgröße für Mobilgeräte */
+    padding: 6px 10px; /* Leicht reduziertes Padding */
+    font-size: 14px; /* Angepasste Schriftgröße */
+    border-radius: 6px; /* Kleinere Ecken für ein kompaktes Design */
   }
 }
