@@ -559,7 +559,7 @@ th {
 .form-button:hover {
   background-color: #45a049;
 }
-/* Responsive Design für Mobile */
+
 @media (max-width: 768px) {
   .navbar-search-wrapper {
     position: absolute;
@@ -585,8 +585,8 @@ th {
   /* Container */
   .container {
     padding: 20px; /* Reduziertes Padding, gleich auf allen Seiten */
-    max-width: 90%; /* Maximale Breite auf 90% setzen */
-    margin: 120px 20px 20px; /* Padding anpassen */
+    max-width: 90%; /* Breite flexibler auf Mobilgeräten */
+    margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
   }
 
   /* Buttons ausblenden */
@@ -603,5 +603,15 @@ th {
 
   .small-button.hide {
     display: none !important; /* Auch wenn der Fade-Out aktiviert wird, werden die Buttons nicht angezeigt */
+  }
+
+  /* Lecture Container */
+  #lectureContainer {
+    display: block; /* Sicherstellen, dass es sichtbar ist */
+    margin: 0 auto; /* Horizontale Zentrierung */
+    width: 90%; /* Maximale Breite auf Mobilgeräten */
+    max-width: 600px; /* Maximale Breite für größere Bildschirme */
+    padding: 100px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
+    position: relative; /* Position für mögliche weitere Anpassungen */
   }
 }
