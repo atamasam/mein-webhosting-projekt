@@ -560,7 +560,7 @@ th {
   background-color: #45a049;
 }
 
-/* Responsive Design */
+/* Responsive Design für Mobile */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
     position: absolute;
@@ -595,6 +595,7 @@ th {
     display: none; /* Buttons unsichtbar machen */
     pointer-events: none; /* Deaktiviert die Interaktion mit den Buttons */
     opacity: 0; /* Unsichtbar */
+    animation: none; /* Deaktiviert Animationen für die Buttons auf mobilen Geräten */
   }
 
   /* Lecture Container */
