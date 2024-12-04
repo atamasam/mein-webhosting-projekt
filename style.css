@@ -588,6 +588,10 @@ th {
     padding: 20px; /* Reduziertes Padding, gleich auf allen Seiten */
     max-width: 90%; /* Breite flexibler auf Mobilgeräten */
     margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
+    overflow-y: auto; /* Ermöglicht das Scrollen des Containers */
+    max-height: calc(
+      100vh - 150px
+    ); /* Maximale Höhe für den Container auf mobilen Geräten */
   }
 
   /* Buttons */
@@ -602,43 +606,34 @@ th {
     color: white;
     transition: background-color 0.3s ease;
     opacity: 0; /* Startet unsichtbar */
-    position: absolute; /* Absolute Positionierung, um sie unter dem Container zu platzieren */
-    left: 0; /* Positioniert beide Buttons relativ zur Seite */
-    right: 0;
-    bottom: 10px; /* Abstand von unten */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 200px; /* Maximale Breite der Buttons */
+    margin-top: 20px; /* Abstand nach unten */
+    margin-left: 10px;
+    margin-right: 10px;
+    display: none; /* Buttons unsichtbar standardmäßig */
   }
 
   #backButton {
-    left: 10px; /* Kleiner Abstand von der linken Wand */
+    margin-left: 0; /* Verhindert einen großen Abstand links */
   }
 
   #nextButton {
-    right: 10px; /* Kleiner Abstand von der rechten Wand */
+    margin-right: 0; /* Verhindert einen großen Abstand rechts */
   }
 
   .small-button.show {
-    animation: fadeIn 0.5s forwards; /* Einblendungsanimation */
-  }
-
-  .small-button.hide {
-    animation: fadeOut 0.5s forwards; /* Ausblendungsanimation */
+    display: inline-block; /* Zeigt die Buttons, wenn sie sichtbar werden */
   }
 
   .small-button:hover {
     background-color: #005bb5; /* Dunkleres Blau */
   }
 
-  /* Zentrieren des lectureContainers mit Padding oben */
+  /* Zentrieren des lectureContainers */
   #lectureContainer {
     display: block; /* Sicherstellen, dass es sichtbar ist, wenn benötigt */
     margin: 0 auto; /* Horizontale Zentrierung */
     width: 90%; /* Maximale Breite auf Mobilgeräten */
     max-width: 600px; /* Maximale Breite für größere Bildschirme */
-    padding-top: 50px; /* Viel Padding oben für mehr Abstand */
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
   }
 }
