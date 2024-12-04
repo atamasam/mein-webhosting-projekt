@@ -562,7 +562,7 @@ th {
 
 /* Responsive Design */
 /* Standard Design */
-@media only screen and (max-width: 390px) {
+@media (max-width: 768px) {
   /* Body und allgemeine Container */
   body {
     font-family: Arial, sans-serif;
