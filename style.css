@@ -561,11 +561,85 @@ th {
 }
 
 /* Responsive Design */
-@media (max-width: 500px) {
-  .currency-form {
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-links {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .toggle-btn {
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  /* Buttons */
+  .small-button {
+    padding: 12px 24px;
+    font-size: 14px;
+    position: absolute;
+    top: 100px; /* Adjust position if necessary */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .button,
+  .button-web {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  /* Container */
+  .container {
+    margin: 80px 20px;
+    width: auto;
+    padding: 20px;
+  }
+
+  .content {
+    max-width: 100%;
+    margin-top: 100px; /* Reduced margin for mobile */
+  }
+
+  /* Footer */
+  .footer {
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Bilder */
+  .lecture-image {
+    width: 90%;
+  }
+
+  /* Tabellen */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* Weitere Anpassungen für Formulare */
+  .form {
+    width: 100%;
     padding: 1rem;
   }
+
+  .form-label,
+  .form-input,
   .form-button {
     width: 100%;
+    margin-bottom: 1rem;
   }
 }
