@@ -147,6 +147,22 @@ body {
   background-color: #005bb5; /* Dunkleres Blau */
 }
 
+.button-web {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.button-web:hover {
+  background-color: #388e3c; /* Dunkleres Grün */
+}
 .content {
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
