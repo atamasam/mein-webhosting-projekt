@@ -561,6 +561,7 @@ th {
 }
 
 /* Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
     position: absolute;
@@ -578,7 +579,7 @@ th {
 
   /* Navbar-Logo */
   .navbar-logo {
-    font-size: 18px; /* Kleinere Schriftgröße für das Logo */
+    font-size: 16px; /* Noch kleinere Schriftgröße für das Logo */
     font-weight: bold;
     color: #007aff;
   }
@@ -587,6 +588,42 @@ th {
   .container {
     padding: 20px; /* Reduziertes Padding */
     max-width: 90%; /* Breite flexibler auf Mobilgeräten */
-    margin: 80px 10px 10px; /* Anpassung an kleinere Bildschirme */
+    margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
+  }
+
+  /* Buttons */
+  .small-button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #007aff; /* Apple Blau */
+    color: white;
+    transition: background-color 0.3s ease;
+    opacity: 0; /* Startet unsichtbar */
+    position: fixed; /* Fixed Positionierung */
+    top: 100px; /* Abstand von der oberen Seite */
+  }
+
+  #backButton {
+    left: 10px; /* Kleiner Abstand von der linken Wand */
+  }
+
+  #nextButton {
+    right: 10px; /* Kleiner Abstand von der rechten Wand */
+  }
+
+  .small-button.show {
+    animation: fadeIn 0.5s forwards; /* Einblendungsanimation */
+  }
+
+  .small-button.hide {
+    animation: fadeOut 0.5s forwards; /* Ausblendungsanimation */
+  }
+
+  .small-button:hover {
+    background-color: #005bb5; /* Dunkleres Blau */
   }
 }
