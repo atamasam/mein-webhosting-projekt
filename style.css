@@ -596,46 +596,7 @@ th {
     margin: 0 auto; /* Horizontale Zentrierung */
     width: 90%; /* Maximale Breite auf Mobilgeräten */
     max-width: 600px; /* Maximale Breite für größere Bildschirme */
-    padding: 30px 20px 20px; /* Padding oben und unten im Container */
-    position: relative; /* Damit die Buttons relativ zum Container positioniert werden können */
-  }
-
-  /* Buttons */
-  .small-button {
-    width: auto;
-    padding: 4px 9px; /* Weitere Reduktion des Paddings, um die Buttons schmaler zu machen */
-    font-size: 12px; /* Noch kleinere Schriftgröße für die Buttons */
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    background-color: #007aff; /* Apple Blau */
-    color: white;
-    transition: background-color 0.3s ease;
-    opacity: 0; /* Startet unsichtbar */
-    position: absolute; /* Absolute Positionierung */
-    bottom: 20px; /* Abstand vom unteren Rand des Containers */
-    left: 50%; /* Horizontal zentriert unter dem Container */
-    transform: translateX(-50%); /* Zentrieren */
-  }
-
-  #backButton {
-    left: 10px; /* Etwas Abstand vom linken Rand */
-  }
-
-  #nextButton {
-    right: 10px; /* Etwas Abstand vom rechten Rand */
-  }
-
-  .small-button.show {
-    opacity: 1; /* Buttons sichtbar machen */
-    animation: fadeIn 0.5s forwards; /* Einblendungsanimation */
-  }
-
-  .small-button.hide {
-    animation: fadeOut 0.5s forwards; /* Ausblendungsanimation */
-  }
-
-  .small-button:hover {
-    background-color: #005bb5; /* Dunkleres Blau */
+    padding: 50px 30px; /* Mehr Padding oben, unten, rechts und links */
+    position: relative; /* Position für mögliche weitere Anpassungen */
   }
 }
