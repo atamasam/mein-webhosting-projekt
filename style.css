@@ -562,6 +562,7 @@ th {
 
 /* Responsive Design */
 /* Standard Design */
+/* Mobile Anpassungen für Handys */
 @media (max-width: 768px) {
   /* Body und allgemeine Container */
   body {
@@ -572,89 +573,145 @@ th {
   }
 
   /* Header / Navbar */
-  header {
+  .navbar {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    color: white;
-    padding-top: 10px; /* Weniger Padding oben */
-    padding-bottom: 10px; /* Normales Padding unten */
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px 15px;
+    max-width: 100%;
+    position: relative;
   }
 
-  /* Navigation Links */
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    margin-right: 15px;
-    font-size: 16px;
+  .navbar-logo {
+    font-size: 20px; /* Etwas kleiner */
+    color: #007aff;
   }
 
-  /* Searchbar */
-  .navbar .searchbar {
-    width: 20%; /* Searchbar schmaler */
-    max-width: 300px; /* Maximale Breite für die Searchbar */
-    margin: 0 auto; /* Zentriert die Searchbar */
-    padding: 8px; /* Weniger Innenabstand */
-    font-size: 14px; /* Kleinere Schriftgröße */
+  .navbar-search-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Breitere Suche */
   }
 
-  /* Lecture Container */
-  .lecture-container {
-    padding-top: 10px; /* Weniger Padding oben */
-    padding-bottom: 20px; /* Normales Padding unten */
-    margin: 10px 15px;
+  .navbar-search input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px; /* Kleinere Schrift */
   }
 
-  /* Titel und Text im Lecture Container */
-  .lecture-container h1 {
-    font-size: 22px;
-    margin-bottom: 10px;
+  .navbar-links {
+    display: none; /* Versteckt Links auf kleinen Bildschirmen */
   }
 
-  .lecture-container p {
-    font-size: 16px;
-    line-height: 1.5;
+  .toggle-btn {
+    font-size: 25px; /* Kleinere Schaltfläche */
+    color: #007aff;
   }
 
-  /* Buttons */
+  /* Kleine Buttons */
+  .small-button {
+    width: auto;
+    padding: 10px 15px;
+    font-size: 14px; /* Kleinere Schrift */
+    position: fixed;
+    top: 70px; /* Position anpassen */
+    right: 20px; /* Nach rechts verschieben */
+  }
+
+  /* Container */
+  .container {
+    margin-top: 80px; /* Platz für die Navbar schaffen */
+    padding: 20px;
+    max-width: 100%;
+  }
+
   .button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px; /* Kleinere Schrift */
   }
 
-  .button:hover {
-    background-color: #45a049;
+  .content {
+    padding: 15px;
+    max-width: 100%; /* Maximale Breite auf 100% setzen */
+    margin-top: 120px; /* Platz für die Navbar schaffen */
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 0; /* Sidebar ausblenden */
+    transition: width 0.3s ease;
   }
 
   /* Footer */
-  footer {
+  .footer {
+    padding: 10px;
     text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    margin-top: 20px;
+    width: 100%;
   }
 
-  /* Links im Footer */
-  footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
+  /* Für Bilder */
+  .lecture-image {
+    width: 100%; /* Bilder an Bildschirmbreite anpassen */
+    max-width: 100%;
+    height: auto;
   }
 
-  footer a:hover {
-    text-decoration: underline;
+  /* Buttons */
+  .button-web {
+    font-size: 14px; /* Kleinere Schriftgröße */
+    padding: 10px 15px;
+  }
+
+  /* Tabelle */
+  .table-container {
+    overflow-x: scroll;
+  }
+
+  table {
+    width: 100%;
+    font-size: 14px; /* Kleinere Schrift */
+  }
+
+  th,
+  td {
+    padding: 6px; /* Weniger Abstand */
+  }
+
+  /* Formular */
+  .form {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .form-input {
+    font-size: 14px; /* Kleinere Schrift */
+  }
+
+  .form-button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  /* Layout für die Kontaktnummern */
+  .contacts-list {
+    max-width: 100%;
+    padding: 10px;
   }
 }
