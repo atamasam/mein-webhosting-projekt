@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Unterricht</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/jpeg" href="pictures/favicon3.png" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <a href="#" onclick="goBack()">WebDev</a>
+        </div>
+        <div class="navbar-search-wrapper">
+          <div class="navbar-search">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Suche nach Vorlesungen..."
+              onkeyup="searchLectures()"
+            />
+          </div>
+        </div>
+        <div class="navbar-links">
+          <span class="toggle-btn" onclick="toggleSidebar()">☰</span>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Web Development Unterricht</h1>
+      <button class="button" onclick="showContent('content/01_content.html')">
+        Vorlesung 1: Einführung 14.10
+      </button>
+      <button class="button" onclick="showContent('content/02_content.html')">
+        Vorlesung 2: JavaScript Grundlagen 21.10
+      </button>
+      <button class="button" onclick="showContent('content/03_content.html')">
+        Vorlesung 3: JavaScript Grundlagen 28.10
+      </button>
+      <button class="button" onclick="showContent('content/04_content.html')">
+        Vorlesung 4: Struktur einer Website erstellen 04.11
+      </button>
+      <button class="button" onclick="showContent('content/05_content.html')">
+        Vorlesung 5: Formulare und Eingaben 11.11
+      </button>
+      <button class="button" onclick="showContent('content/06_content.html')">
+        Vorlesung 6: DOM, JavaScript-Bibliotheken und Events 25.11
+      </button>
+      <button
+        class="button special"
+        onclick="showContent('content/schwerpunkt.html')"
+      >
+        Schwerpunkt: Web Hosting und Deployment
+      </button>
+
+      <div id="noResultsMessage" class="no-results" style="display: none">
+        Keine Vorlesungen gefunden.
+      </div>
+    </div>
+    <button
+      id="nextButton"
+      class="small-button"
+      style="display: none"
+      onclick="showNextLecture()"
+    >
+      Nächste
+    </button>
+    <button
+      id="backButton"
+      class="small-button"
+      style="display: none"
+      onclick="showLastLecture()"
+    >
+      Zurück
+    </button>
+
+    <div id="lectureContainer" class="content" style="display: none"></div>
+    <div id="mySidebar" class="sidebar">
+      <div class="sidebar-content" id="sidebarContent"></div>
+    </div>
+    <footer class="footer">
+      <p>© 2024 Web Development Unterricht</p>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>

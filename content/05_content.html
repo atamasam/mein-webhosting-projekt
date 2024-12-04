@@ -1,0 +1,395 @@
+<div>
+  <h2>Vorlesung 5: Arbeiten mit Formularen und Benutzereingaben (11.11)</h2>
+  <p>
+    Diese Vorlesung umfasst zwei Hauptthemen: Strings und die Arbeit mit
+    Formularen sowie eine Einführung in Objekte in JavaScript. Die Kombination
+    dieser Themen bildet eine Grundlage für dynamische Webanwendungen.
+  </p>
+
+  <h3>Strings</h3>
+  <p>
+    Strings sind eine Möglichkeit, Zeichenketten zu speichern und zu bearbeiten.
+    Anders als der <code>char</code>-Datentyp in Java kann ein String eine
+    gesamte Zeichenkette enthalten. Ein String kann auf unterschiedliche Arten
+    initialisiert werden:
+  </p>
+  <pre><code>
+// String mit der Funktion "new String"
+var text = new String("Dies ist ein String");
+
+// Direkte Initialisierung
+var textTwo = "Dies ist ein weiterer String";
+  </code></pre>
+
+  <p>Wichtige Methoden für die Arbeit mit Strings:</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="border: 1px solid black; padding: 8px">Methode</th>
+        <th style="border: 1px solid black; padding: 8px">Funktion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">
+          <code>charAt()</code>
+        </td>
+        <td style="border: 1px solid black; padding: 8px">
+          Gibt das Zeichen an einer bestimmten Position zurück, z.B. "Sein oder
+          Nichtsein".<br />
+          Beispiel: `"Sein oder Nichtsein".charAt(0)` ergibt "S".
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">
+          <code>indexOf()</code>
+        </td>
+        <td style="border: 1px solid black; padding: 8px">
+          Sucht einen Teilstring und gibt die Position des ersten Vorkommens
+          zurück.<br />
+          Beispiel: `"Sein oder Nichtsein".indexOf("ein")` ergibt 1.<br />
+          Wenn der Teilstring nicht enthalten ist, gibt
+          <code>indexOf()</code> -1 zurück.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">
+          <code>lastIndexOf()</code>
+        </td>
+        <td style="border: 1px solid black; padding: 8px">
+          Sucht einen Teilstring von hinten und gibt die Position zurück.<br />
+          Beispiel: `"Sein oder Nichtsein".lastIndexOf("ein")` ergibt 13.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">
+          <code>substring()</code>
+        </td>
+        <td style="border: 1px solid black; padding: 8px">
+          Gibt einen bestimmten Teil eines Strings zurück.<br />
+          Beispiel: `"Sein oder Nichtsein".substring(0, 9)` ergibt "Sein oder".
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">
+          <code>split()</code>
+        </td>
+        <td style="border: 1px solid black; padding: 8px">
+          Teilt einen String in ein Array von Teilstrings.<br />
+          Beispiel: `"Sein oder Nichtsein".split(" ")` ergibt ein Array:
+          `["Sein", "oder", "Nichtsein"]`.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">
+          <code>length</code>
+        </td>
+        <td style="border: 1px solid black; padding: 8px">
+          Gibt die Länge eines Strings zurück, inklusive Leerzeichen und
+          Sonderzeichen.<br />
+          Beispiel: `"Sein oder Nichtsein".length` ergibt 19.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Eingaben über Formulare</h3>
+  <p>
+    Hier ist ein einfaches Beispiel für die Verwendung eines Formulars in HTML:
+  </p>
+  <pre><code>
+  &lt;form id="meinFormular" name="meinFormular"&gt;
+    &lt;p&gt;
+      &lt;input type="button" id="button1" name="button1" value="Button 1"&gt;
+      &lt;input type="button" id="button2" name="button2" value="Button 2"&gt;
+      &lt;input type="text" id="eingabe1" name="eingabe1" value=""&gt;
+    &lt;/p&gt;
+  &lt;/form&gt;
+  </code></pre>
+  <p>
+    Formulare umfassen eine beliebige Anzahl von Formularelementen und werden in
+    HTML mit dem <code>&lt;form&gt;</code>-Tag erzeugt. Zugriff auf Formulare
+    kann auf verschiedene Arten erfolgen:
+  </p>
+  <ul>
+    <li>
+      Über das <code>forms</code>-Array: <code>document.forms[0]</code> für das
+      erste Formular, <code>document.forms[1]</code> für das zweite.
+    </li>
+    <li>
+      Über den Namen oder die ID des Form-Objekts:
+      <code>document.getElementById(&quot; meinFormular &quot;)</code>.
+    </li>
+  </ul>
+  <h4>Textobjekt</h4>
+  <p>
+    Ein Textfeld ist ein einfaches Eingabefeld. Die Eingabe kann mit
+    <code>document.getElementById("eingabe1").value</code> abgerufen werden.
+  </p>
+
+  <h3>Objekte in JavaScript</h3>
+  <p>
+    In JavaScript sind Objekte zentrale Elemente. Sie bestehen aus Eigenschaften
+    (Datenfeldern) und Methoden (Funktionen). Hier einige Beispiele für
+    HTML-Formularobjekte:
+  </p>
+  <ul>
+    <li>
+      <code>Password-Objekt</code>: Für Passworteingaben, wo die Eingabe mit
+      Sternchen oder Symbolen maskiert wird.
+    </li>
+    <li>
+      <code>Hidden-Objekt</code>: Ein unsichtbares Eingabefeld zum
+      Zwischenspeichern von Daten.
+    </li>
+    <li>
+      <code>Button-Objekt</code>: Ein Button, der mit einem EventHandler, z.B.
+      <code>onclick</code>, verknüpft ist.
+    </li>
+    <li><code>Submit-Objekt</code>: Zum Absenden eines Formulars.</li>
+    <li>
+      <code>Reset-Objekt</code>: Setzt Formulare auf ihre Standardwerte zurück.
+    </li>
+    <li>
+      <code>Checkbox-Objekt</code>: Zum Aktivieren oder Deaktivieren einer
+      Option.
+    </li>
+    <li>
+      <code>Radio-Objekt</code>: Zum Auswählen einer Option aus einer Gruppe von
+      Auswahlmöglichkeiten.
+    </li>
+    <li>
+      <code>Option</code>: Zum Erstellen von Auswahlmöglichkeiten in einem
+      <code>&lt;select&gt;</code>-Tag, z.B. für Dropdown-Listen.
+    </li>
+  </ul>
+
+  <h4>Erstellung eines Objekts</h4>
+  <pre><code>
+    // Leeres Objekt erstellen
+    var fahrrad = new Object();
+    fahrrad.farbe = "rot";
+    console.log(fahrrad.farbe); // Gibt "rot" aus
+  </code></pre>
+
+  <h2 class="section-title">Währungsumrechner</h2>
+  <form id="meinFormular" name="meinFormular" class="currency-form">
+    <p class="form-group">
+      <label for="eingabe" class="form-label">Betrag eingeben:</label>
+      <input type="text" id="eingabe" name="eingabe" class="form-input" />
+    </p>
+    <p class="form-group">
+      <label class="form-label">Währung auswählen:</label>
+      <input
+        type="radio"
+        name="radio"
+        value="euroToUs"
+        id="euroToUs"
+        class="form-radio"
+      />
+      <label for="euroToUs" class="radio-label">Euro zu US-Dollar</label>
+      <input
+        type="radio"
+        name="radio"
+        value="usToEuro"
+        id="usToEuro"
+        class="form-radio"
+      />
+      <label for="usToEuro" class="radio-label">US-Dollar zu Euro</label>
+    </p>
+    <p class="form-group">
+      <button type="button" class="form-button" onclick="script4()">
+        Berechnen
+      </button>
+    </p>
+    <p class="form-group">
+      <label for="ausgabe" class="form-label">Ergebnis:</label>
+      <input
+        type="text"
+        id="ausgabe"
+        name="ausgabe"
+        class="form-input"
+        readonly
+      />
+    </p>
+  </form>
+  <h3>Erweiterung: Objekte in JavaScript</h3>
+  <p>
+    Objekte in JavaScript bestehen generell aus dem Objektnamen, Eigenschaften
+    (auch Attribute genannt) und Methoden (auch Funktionen). Um das besser zu
+    veranschaulichen, kann man sich das Beispiel eines Fahrrads vorstellen.
+    Dieses hat verschiedene Eigenschaften, z.B. eine Farbe, eine bestimmte Größe
+    und eine Anzahl an Gängen. Das Fahrrad kann außerdem bestimmte Dinge tun,
+    wie z.B. losfahren, bremsen oder das Licht anschalten, das sind die Methoden
+    des Objekts Fahrrad.
+  </p>
+
+  <h4>Erstellung eines Objekts</h4>
+  <p>
+    In JavaScript gibt es verschiedene Wege, Objekte zu erzeugen. Zu den
+    gängigsten Methoden gehören:
+  </p>
+  <ul>
+    <li><strong>Allgemeiner Konstruktor:</strong> <code>new Object()</code></li>
+    <li>
+      <strong>Objekt-Literale:</strong> Mit geschweiften Klammern, z.B.
+      <code>{}</code>
+    </li>
+    <li><strong>Konstruktorfunktionen und Prototypen</strong></li>
+    <li><strong>Klassen:</strong> Seit ECMAScript 6 mit <code>class</code></li>
+  </ul>
+
+  <h4>Beispiel: Fahrrad-Objekt</h4>
+  <p>
+    Um ein einfaches Fahrrad-Objekt zu erstellen, könnte der folgende Code
+    verwendet werden:
+  </p>
+  <pre><code>
+    // Leeres Objekt erstellen
+    var fahrrad = new Object();
+    fahrrad.farbe = "rot";
+    console.log(fahrrad.farbe); // Gibt "rot" aus
+  </code></pre>
+
+  <h4>Objekt-Literale</h4>
+  <p>
+    Objekte können auch mithilfe von Objekt-Literalen erstellt werden. Dazu wird
+    ein Objekt direkt mit seinen Eigenschaften und Methoden erstellt:
+  </p>
+  <pre><code>
+    var fahrrad = {
+        farbe: "rot",
+        anzahlGaenge: 3,
+        fahreLos: function () {
+            console.log("Fahrrad fährt!")
+        },
+        bremse: function () {
+            console.log("Fahrrad bremst!")
+        }
+    }
+  </code></pre>
+
+  <h4>Konstruktorfunktion</h4>
+  <p>
+    In JavaScript können auch Konstruktorfunktionen verwendet werden, um Objekte
+    zu erstellen. Dies ermöglicht das Erzeugen mehrerer Objekte mit denselben
+    Eigenschaften und Methoden:
+  </p>
+  <pre><code>
+    function Fahrrad(farbe) {
+        this.farbe = farbe;
+        this.fahreLos = function() {
+            console.log("Fahrrad fährt!")
+        };
+    }
+    var neuesFahrrad = new Fahrrad("blau");
+  </code></pre>
+
+  <h4>Klassen in JavaScript</h4>
+  <p>
+    JavaScript unterstützt seit ECMAScript 6 auch Klassen, die mit dem
+    Schlüsselwort <code>class</code> erstellt werden. Hier ein Beispiel:
+  </p>
+  <pre><code>
+    class Fahrrad {
+        constructor(farbe) {
+            this.farbe = farbe;
+        }
+        fahreLos() {
+            console.log("Fahrrad fährt!");
+        }
+    }
+    var neuesFahrrad = new Fahrrad("grün");
+  </code></pre>
+
+  <h4>Private Instanzvariablen</h4>
+  <p>
+    In modernen JavaScript-Klassen können private Variablen eingeführt werden,
+    die nur innerhalb der Klasse zugänglich sind. Diese werden mit einer Raute
+    (<code>#</code>) vor dem Variablennamen deklariert:
+  </p>
+  <pre><code>
+    class Fahrrad {
+        #farbe;
+        #anzahlGaenge;
+        
+        constructor(farbe, anzahlGaenge) {
+            this.#farbe = farbe;
+            this.#anzahlGaenge = anzahlGaenge;
+        }
+
+        getFarbe() {
+            return this.#farbe;
+        }
+    }
+
+    let test = new Fahrrad("blau", 3);
+    console.log(test.getFarbe()); // Gibt "blau" aus
+  </code></pre>
+
+  <h4>Übung: Objektkonstruktion</h4>
+  <h1>Kontakte-Objekte</h1>
+  <form id="contactForm" class="form contact-form">
+    <label for="vorname" class="form-label">Vorname:</label>
+    <input
+      type="text"
+      id="vorname"
+      name="vorname"
+      class="form-input"
+      required
+    />
+
+    <label for="nachname" class="form-label">Nachname:</label>
+    <input
+      type="text"
+      id="nachname"
+      name="nachname"
+      class="form-input"
+      required
+    />
+
+    <label for="telefon" class="form-label">Telefonnummer:</label>
+    <input type="tel" id="telefon" name="telefon" class="form-input" required />
+
+    <label for="email" class="form-label">Email:</label>
+    <input type="email" id="email" name="email" class="form-input" required />
+
+    <button type="button" class="form-button" onclick="addContact()">
+      Kontakt hinzufügen
+    </button>
+  </form>
+
+  <div id="contactsList" class="contacts-list"></div>
+
+  <h2 class="edit-heading">Kontakt bearbeiten</h2>
+  <form id="editForm" class="form edit-form">
+    <label for="editVorname" class="form-label">Vorname des Kontakts:</label>
+    <input
+      type="text"
+      id="editVorname"
+      name="editVorname"
+      class="form-input"
+      required
+    />
+
+    <label for="neuerNachname" class="form-label">Neuer Nachname:</label>
+    <input
+      type="text"
+      id="neuerNachname"
+      name="neuerNachname"
+      class="form-input"
+    />
+
+    <button type="button" class="form-button" onclick="updateName()">
+      Nachname ändern
+    </button>
+    <button
+      type="button"
+      class="form-button secondary-button"
+      onclick="checkUser()"
+    >
+      Nachname überprüfen
+    </button>
+  </form>
+
+  <div id="editResult" class="edit-result"></div>
+</div>

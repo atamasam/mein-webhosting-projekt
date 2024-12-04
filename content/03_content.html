@@ -1,0 +1,48 @@
+<div>
+  <h2>Vorlesung 3: Fortgeschrittene JavaScript-Konzepte (28.10)</h2>
+  <p>
+    Zum Anfang der dritten Vorlesung gab es wieder einen kleinen HTML-Einschub.
+    Hierbei fokussierten wir uns auf das HT (Hypertext) in HTML und haben den
+    <code>&lt;a&gt;</code>-Tag kennengelernt, mit dem auf andere Seiten verlinkt
+    werden kann.
+  </p>
+  <p>Dieser funktioniert folgendermaßen:</p>
+  <pre><code>&lt;a href="https://link.de"&gt;Linktext&lt;/a&gt;</code></pre>
+  <p>
+    Neben dem Namen des Tags wird das Attribut <code>href</code> benutzt, das
+    das Ziel des Links angibt. Innerhalb des Tags steht der normale Text des
+    Links, der auf der Website angezeigt wird und angeklickt werden kann.
+  </p>
+  <p>
+    Anstelle von externen Websites kann auch auf andere HTML-Dateien verlinkt
+    werden. Wenn diese im gleichen Ordner liegt, ist dazu als Ziel des Links
+    lediglich der volle Name der Datei nötig, z.B. <code>elixiere.html</code>.
+  </p>
+  <pre><code>&lt;a href="elixiere.html"&gt;Elixiere&lt;/a&gt;</code></pre>
+  <p>
+    Da man so aber bei vielen Unterseiten schnell den Überblick verlieren würde,
+    da sich viele Dateien in einem Ordner befinden, empfiehlt es sich, eine
+    Ordnerstruktur anzulegen.
+  </p>
+  <p>
+    Wir haben das an dem Beispiel einer Website für die „KopfüBar“ ausprobiert.
+    Dazu wurden die einzelnen Unterseiten in entsprechend benannte Ordner
+    gepackt und auch die Bilder in ein gemeinsames Verzeichnis.
+  </p>
+  <p>
+    Um nun von <code>bar.html</code> auf <code>getraenke.html</code> zu
+    verlinken, muss zusätzlich der Dateipfad angegeben werden.
+  </p>
+  <pre><code>&lt;a href="getraenke/getraenke.html"&gt;Getränke&lt;/a&gt;</code></pre>
+  <p>
+    Wenn nun aber z.B. die Unterseite der Getränke zurück auf die Startseite
+    verweisen will, muss klargestellt werden, dass diese in dem Ordner darüber
+    liegt. Um dies anzugeben, werden zwei Punkte benutzt <code>../</code>.
+  </p>
+  <pre><code>&lt;a href="../bar.html"&gt;Startseite&lt;/a&gt;</code></pre>
+  <p>
+    Wichtig bei Verlinkungen von Unterseiten oder anderen Dateien ist dabei
+    immer, auf die Dateiendungen zu achten und diese mit anzugeben. Andernfalls
+    kann der Browser diese nicht laden.
+  </p>
+</div>

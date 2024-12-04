@@ -1,0 +1,286 @@
+<div>
+  <h2>Vorlesung 2: Grundlagen der JavaScript-Syntax (21.10)</h2>
+  <p>
+    Willkommen zur zweiten Vorlesung im Modul "Webdevelopment". Diese Einheit
+    behandelt die Grundlagen von JavaScript, einschließlich
+    Entwicklungsumgebungen, Variablen, Datentypen, Kontrollstrukturen,
+    Funktionen und höherer Funktionen.
+  </p>
+
+  <h3>Was macht der Webbrowser?</h3>
+  <ul>
+    <li>Der Server „serviert“ die Webseiten und schickt sie an den Browser.</li>
+    <li>Der Browser ruft die Seite ab und zeigt die HTML-Seite an.</li>
+  </ul>
+
+  <h3>HTML</h3>
+  <ul>
+    <li>
+      <strong>HyperText Markup Language:</strong> Ermöglicht die Strukturierung
+      von Webseiten.
+    </li>
+    <li>
+      Sechs Ebenen von Überschriften: <code>&lt;h1&gt;</code> bis
+      <code>&lt;h6&gt;</code>.
+    </li>
+    <li>Kommentare: <code>&lt;!-- Dies ist ein Kommentar --&gt;</code>.</li>
+    <li>
+      Schließende Tags: <code>&lt;/tag&gt;</code> helfen dem Browser, den Inhalt
+      klar abzugrenzen.
+    </li>
+  </ul>
+
+  <h3>Entwicklungsumgebung</h3>
+  <ul>
+    <li>
+      <strong>Visual Studio Code:</strong> Ein Open-Source-Editor,
+      plattformunabhängig und erweiterbar.
+    </li>
+    <li>Alternative Editoren: Atom, Brackets, Notepad++, Bbedit.</li>
+    <li>
+      <strong>Node.js:</strong> Ermöglicht serverseitiges JavaScript und ist
+      plattformunabhängig.
+    </li>
+  </ul>
+
+  <h3>JavaScript Variablen und Datentypen</h3>
+  <ul>
+    <li>
+      JavaScript ist dynamisch typisiert: Variablen können Datentypen ändern.
+    </li>
+    <li>
+      <strong>Variablendeklarationen:</strong>
+      <ul>
+        <li><code>let</code>: Lokaler Gültigkeitsbereich (empfohlen).</li>
+        <li>
+          <code>var</code>: Globaler oder lokaler Gültigkeitsbereich (veraltet).
+        </li>
+        <li>
+          <code>const</code>: Konstanten, die nur einmal zugewiesen werden
+          können.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Datentypen:</strong> Number, String, Boolean, Object, null,
+      undefined.
+    </li>
+  </ul>
+
+  <h3>Werte, Typen und Operatoren</h3>
+  <ul>
+    <li>
+      Arithmetische Operatoren: <code>+</code>, <code>-</code>, <code>*</code>,
+      <code>/</code>.
+    </li>
+    <li>
+      Vergleichsoperatoren: <code>==</code>, <code>===</code>, <code>!=</code>,
+      <code>!==</code>.
+    </li>
+    <li>
+      Logische Operatoren: <code>&&</code>, <code>||</code>, <code>!</code>.
+    </li>
+  </ul>
+  <pre><code>
+    let a = 5;
+    let b = 10;
+    console.log(a + b); // Ausgabe: 15
+  </code></pre>
+
+  <h3>Kontrollstrukturen</h3>
+  <ul>
+    <li>
+      <code>if</code>, <code>else</code>, <code>else if</code>: Bedingte
+      Anweisungen.
+    </li>
+    <li>
+      Schleifen: <code>for</code>, <code>while</code>, <code>do-while</code>.
+    </li>
+  </ul>
+  <pre><code>
+for (let i = 1; i &lt;=  5; i++) {
+    console.log(i); // Ausgabe von 1 bis 5
+}
+  </code></pre>
+
+  <h3>Kontrollausgaben in der Konsole</h3>
+  <p>Verwendung von verschiedenen Konsolenmethoden:</p>
+  <div class="table-container">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Methode</th>
+          <th>Beschreibung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>console.clear()</code></td>
+          <td>Bereinigt die Konsole.</td>
+        </tr>
+        <tr>
+          <td><code>console.debug()</code></td>
+          <td>Zeigt Debugging-Informationen an.</td>
+        </tr>
+        <tr>
+          <td><code>console.error()</code></td>
+          <td>Zeigt eine Fehlermeldung an.</td>
+        </tr>
+        <tr>
+          <td><code>console.info()</code></td>
+          <td>Zeigt allgemeine Informationen an.</td>
+        </tr>
+        <tr>
+          <td><code>console.log()</code></td>
+          <td>Zeigt eine Standardnachricht an.</td>
+        </tr>
+        <tr>
+          <td><code>console.trace()</code></td>
+          <td>Zeigt den Stack-Trace an.</td>
+        </tr>
+        <tr>
+          <td><code>console.warn()</code></td>
+          <td>Zeigt eine Warnung an.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Arrays</h3>
+  <ul>
+    <li>
+      Arrays können auf zwei Arten erstellt werden:
+      <ul>
+        <li>Mit der Konstrukturfunktion <code>new Array()</code></li>
+        <li>Mit der Literalsyntax: <code>[]</code></li>
+      </ul>
+    </li>
+    <li>Beispiel mit Literalsyntax:</li>
+    <pre><code>
+const fruits = ['Apple', 'Banana', 'Cherry'];
+console.log(fruits[0]); // Ausgabe: 'Apple'
+    </code></pre>
+    <li>Methoden für Arrays: <code>push()</code>, <code>pop()</code>, usw.</li>
+    <pre><code>
+fruits.push('Grapes');
+console.log(fruits); // Ausgabe: ['Apple', 'Banana', 'Cherry', 'Grapes']
+    </code></pre>
+  </ul>
+
+  <h3>String-Verkettung</h3>
+  <ul>
+    <li>Strings können mit dem <code>+</code> Operator verkettet werden:</li>
+    <pre><code>
+let greeting = "Good";
+let timeOfDay = "Morning";
+let result = greeting + " " + timeOfDay; // Ausgabe: "Good Morning"
+    </code></pre>
+  </ul>
+
+  <h3>Objekte</h3>
+  <ul>
+    <li>Objekte sind Container für Schlüssel-Wert-Paare:</li>
+    <pre><code>
+const book = {
+  title: '1984',
+  author: 'George Orwell',
+  pages: 328,
+  read: function() {
+    console.log('Reading 1984...');
+  }
+};
+console.log(book.title); // Ausgabe: '1984'
+book.title = 'Animal Farm'; // Der Titel des Buches wird geändert
+    </code></pre>
+  </ul>
+
+  <h3>Funktionen</h3>
+  <ul>
+    <li>Traditionelle Funktionsdefinition:</li>
+    <pre><code>
+function add(a, b) {
+    return a + b;
+}
+    </code></pre>
+    <li>Pfeilfunktionen (ES6):</li>
+    <pre><code>
+const add = (a, b) => a + b;
+    </code></pre>
+    <li>Pure Functions: Funktionen ohne Seiteneffekte:</li>
+    <pre><code>
+const double = (x) => x * 2;
+    </code></pre>
+  </ul>
+
+  <h3>Höhere Funktionen</h3>
+  <p>
+    Funktionen, die andere Funktionen als Parameter nehmen oder zurückgeben, z.
+    B. <code>map</code>, <code>filter</code>, <code>reduce</code>.
+  </p>
+  <pre><code>
+    const numbers = [1, 2, 3];
+    const doubled = numbers.map((n) => n * 2);
+    console.log(doubled); // Ausgabe: [2, 4, 6]
+  </code></pre>
+
+  <h3>Übungen</h3>
+  <ol>
+    <li>
+      Schreiben Sie ein Programm, das mit geschachtelten Schleifen ein
+      Stern-Dreieck erzeugt.
+    </li>
+    <li>
+      Implementieren Sie eine Funktion <code>countBs</code>, die die Anzahl von
+      „B“ in einem String zählt, mithilfe von Pfeilfunktionen.
+    </li>
+  </ol>
+
+  <h3>Beispiel 1</h3>
+  <p>Testen Sie den folgenden JavaScript-Code direkt auf dieser Seite:</p>
+  <pre><code>
+    function runScript_2() {
+      let eingabe = prompt("Bitte geben Sie die Anzahl ein: ", "");
+      
+      if (!eingabe) {
+        console.log("Abbruch eingegeben");
+      } else {
+        for (var i = 1; i &lt;=  eingabe; i++) {
+          let starLine = "";
+          for (var j = 1; j &lt;=  i; j++) {
+            starLine += "*";
+          }
+          console.log(starLine);
+        }
+      }
+    }
+</code></pre>
+  <p>Console-Ausgabe</p>
+  <pre><code id="codeBlock2">// Hier wird die Ausgabe erscheinen</code></pre>
+  <button class="button-test" onclick="runScript_2()">
+    Testen Sie den Code
+  </button>
+
+  <h3>Beispiel 2</h3>
+  <p>
+    Testen Sie die Funktion <code>countBs</code>, die die Anzahl von „B“ in
+    einem String zählt:
+  </p>
+  <pre><code>
+    function runScript_3() {
+      let inputString = prompt("Bitte geben Sie einen String ein:", "");
+    
+      if (!inputString) {
+        console.log("Abbruch eingegeben");
+      } else {
+        const countBs = str => str.split("").filter(char => char.toLowerCase() === "b").length;
+        let count = countBs(inputString);
+        console.log(`Der String enthält ${count} 'B' oder 'b'.`);  // Korrektur hier
+      }
+    }
+</code></pre>
+  <p>Console-Ausgabe</p>
+  <pre><code id="codeBlock3">// Hier wird die Anzahl der 'B' erscheinen</code></pre>
+  <button class="button-test" onclick="runScript_3()">
+    Testen Sie den Code
+  </button>
+</div>

@@ -1,0 +1,285 @@
+<div>
+  <h2>Vorlesung 1: Einführung in JavaScript (14.10)</h2>
+  <p>
+    Willkommen zur ersten Vorlesung! Wir erklären die Grundlagen von Web und
+    Server, einschließlich Client-Server-Modell, Datenbanken, HTML-Dokumenten,
+    serverseitiger und clientseitiger Verarbeitung sowie Software-Architektur
+    von Webanwendungen.
+  </p>
+  <h3>Einführungsbeispiel</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content/client_server.png"
+    alt="Client Server: Vereinfachte Darstellung einer Internetverbindung"
+  />
+  <p class="image_des">
+    Client Server: Vereinfachte Darstellung einer Internetverbindung
+  </p>
+  <ul>
+    <li>
+      Es wäre unmöglich für alle erdenklichen Suchbegriffe fertige
+      HTML-Dokumente bereitzustellen
+    </li>
+    <li>Stattdessen sind alle Informationen in einer Datenbank</li>
+    <li>Diese liefert nach Abfrage eine Liste von passenden Links</li>
+    <li>Der Server generiert aus dieser Liste ein HTML-Dokument</li>
+    <li>Zuletzt schickt der Server es an den Anwender</li>
+  </ul>
+  <h3>Serverseitige Verarbeitung mit Anbindung einer Datenbank</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content/serverseitige_verarbeitung.png"
+    alt="Serverseitige Verarbeitung mit Anbindung einer Datenbank"
+  />
+  <p class="image_des">Häufige Verarbeitung auf dem Server</p>
+  <ul>
+    <li>Zahlreiche Programmiersprachen</li>
+    <li>Beliebt: PHP, Perl und Java</li>
+  </ul>
+  <h3>Clientseitige Verarbeitung</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content/clientseitige_verarbeitung.png"
+    alt="Clientseitige Verarbeitung"
+  />
+  <p class="image_des">Einsatz von Javascript auf der Clientseite</p>
+  <ul>
+    <li>Einsatz von Javascript auf der Clientseite</li>
+  </ul>
+  <h3>Software-Architektur von Webanwendungen</h3>
+  <p>
+    Grundlegend wird bei Software-Architekturen für Webanwendungen zwischen
+    Client-seitiger Programmierung und Server-seitiger Programmierung
+    unterschieden. Bei beiden Arten gibt es Vor- und Nachteile.
+  </p>
+  <h3>Client-seitig: Rich – thick Client</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content/gesamte_Programmierung_clientseitig.png"
+    alt="Beispiel: gesamte Programmierung client-seitig: Rich – thick Client"
+  />
+  <p>
+    <strong>Beschreibung:</strong> Anzeige und Dokument im Webclient ->
+    Interaktion mit dem Webserver
+  </p>
+  <ul>
+    <li>
+      <strong>Vorteile:</strong> Technische Umgebung des Benutzers kann
+      berücksichtigt werden
+    </li>
+    <li>
+      <strong>Nachteile:</strong> Verarbeitung des Programmcodes kann vom Nutzer
+      unterbunden werden
+    </li>
+  </ul>
+  <h3>Server-seitig</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content/gesamte_Programmierung_server_seitig.png"
+    alt="Software-Architektur von Webanwendungen: gesamte Programmierung server-seitig"
+  />
+  <p>
+    <strong>Beschreibung:</strong> Anzeige und Dokument im Webclient ->
+    Interaktion mit dem Webserver. Der Webserver interagiert mit Java Servlets,
+    CGI-Anwendungen und PHP-Anwendungen.
+  </p>
+  <ul>
+    <li>
+      <strong>Vorteile:</strong> Man ist nicht darauf angewiesen, dass der
+      Nutzer die clientseitige Verarbeitung einschaltet
+    </li>
+    <li>
+      <strong>Nachteile:</strong> Technische Umgebung des Benutzers wird nicht
+      berücksichtigt
+    </li>
+  </ul>
+  <h3>Erweiterung um Programme oder Skripte</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content/client_und_severseitigpng.png"
+    alt="Software-Architektur von Webanwendungen: client-seitige und server-seitige Erweiterung um Programme oder Skripte"
+  />
+  <p>
+    <strong>Beschreibung:</strong> Anzeige und Dokument im Webclient ->
+    Interaktion mit dem Webserver. Der Webserver interagiert mit Java Servlets,
+    CGI-Anwendungen und PHP-Anwendungen.
+  </p>
+  <ul>
+    <li>
+      <strong>Vorteile:</strong> Vorteile von Client- und Serverseitiger
+      Verarbeitung können genutzt werden
+    </li>
+  </ul>
+
+  <h3>Skriptsprachen</h3>
+  <ul>
+    <li>Programmiersprachen: Java, C++, C, Assembler, Fortran</li>
+    <li>Auszeichnungssprachen: HTML, XML</li>
+    <li>Skriptsprachen: PHP, Perl, JavaScript, Python, Ruby</li>
+  </ul>
+
+  <h3>Übersetzung von Programmiersprachen</h3>
+  <ul>
+    <li>
+      Ein Übersetzer transformiert ein Programm der Quellsprache in ein
+      gleichbedeutendes Programm der Zielsprache
+    </li>
+    <li>Die meisten Programmiersprachen werden übersetzt</li>
+    <li>
+      Zielsprache ist meist eine Maschinensprache eines Prozessors oder einer
+      abstrakten Maschine (z.B. JVM)
+    </li>
+    <li>Übersetzte Sprachen haben eine stark ausgeprägte statische Semantik</li>
+  </ul>
+
+  <h3>Interpretation von Sprachen</h3>
+  <ul>
+    <li>Ein Interpretierer liest und führt ein Programm aus</li>
+    <li>
+      Strikt interpretierte Sprachen haben einfache Struktur und keine statische
+      Semantik
+    </li>
+    <li>Bindungs- und Typregeln werden erst zur Ausführung geprüft</li>
+    <li>Interpretierer können auf jedem Rechner verfügbar gemacht werden</li>
+    <li>
+      Interpretation kann langsamer sein als die Ausführung von übersetzten
+      Programmen
+    </li>
+  </ul>
+
+  <h3>Skriptsprachen</h3>
+  <ul>
+    <li>Scripting: Zusammensetzen von Kommandos für kleine Aufgaben</li>
+    <li>
+      Anforderungen: einfache Aufgaben lösen, existierende Funktionen nutzen,
+      Textverarbeitung, gute Verfügbarkeit
+    </li>
+  </ul>
+
+  <h3>Zweck von Skriptsprachen</h3>
+  <ul>
+    <li>Einfache Sprachen mit wenigen Konstrukten und Regeln</li>
+    <li>Dynamische Typprüfung</li>
+    <li>Interpretiert, ohne vorherige Übersetzung ausführbar</li>
+    <li>Leicht erlernbar</li>
+    <li>Sprachstile: imperativ, objektorientiert</li>
+  </ul>
+
+  <h3>JavaScript</h3>
+  <ul>
+    <li>Relativ einfache Skriptsprache</li>
+    <li>Speziell für HTML entwickelt</li>
+    <li>
+      Code wird über das <code>&lt;script&gt;</code>-Tag direkt im HTML-Code
+      eingebunden
+    </li>
+    <li>Im Web-Browser interpretiert</li>
+    <li>Basis für dynamisches HTML (DHTML) und Web 2.0</li>
+  </ul>
+
+  <h3>Grundlegende HTML-Datei</h3>
+  <p>
+    HTML-Dateien sind durch Tags aufgebaut, die die Struktur definieren.
+    Schlüsselwörter werden in spitzen Klammern geschrieben, z.B.
+    <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code>.
+  </p>
+  <pre><code>
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Beispiel&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+    Das ist HTML!
+    &lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+  <p>Das abschließende <code>&lt;/html&gt;</code> beendet die HTML-Datei.</p>
+
+  <h3>JavaScript</h3>
+  <pre><code>
+  &lt;script type="text/javascript"&gt;
+      // JavaScript Code
+  &lt;/script&gt;
+  </code></pre>
+  <p>
+    Eine Möglichkeit in JavaScript ist das Ausgeben einer Meldung mit der
+    Methode <code>alert</code>.
+  </p>
+  <pre><code>
+  &lt;script type="text/javascript"&gt;
+      alert("Das ist JavaScript!");
+  &lt;/script&gt;
+  </code></pre>
+  <button class="button-test" onclick="alert('Das ist JavaScript!')">
+    Alert auslösen
+  </button>
+  <p>
+    Beim Aufrufen der Website wird eine Meldung mit dem Text „Das ist
+    JavaScript!“ angezeigt, die mit Ok bestätigt werden kann.
+  </p>
+
+  <p>
+    Weiterhin ist es möglich in JavaScript zu rechnen. Dazu benutzt man für die
+    Ausgabe wieder die alert-Funktion, ersetzt aber den Text durch eine
+    mathematische Operation.
+  </p>
+  <pre><code>
+&lt;script type="text/javascript"&gt;
+    alert(17 + 5 * 3);
+&lt;/script&gt;
+</code></pre>
+  <p>
+    Als Ergebnis würde hier 32 ausgegeben werden. Im Gegensatz zum ersten
+    Beispiel wird die Rechnung nicht in Anführungszeichen angegeben, da der
+    Computer so erkennt, dass es sich nicht um einen normalen Text handelt.
+  </p>
+
+  <p>
+    Häufig soll JavaScript-Code nicht direkt beim Aufrufen der Website
+    ausgeführt werden, sondern erst als Reaktion auf eine Usereingabe. Hier
+    bietet sich z.B. ein Input vom Typ Knopf an, der eine Meldung auslöst.
+  </p>
+  <pre><code>
+&lt;form&gt;
+   &lt;input type="button" value="Test" onclick="alert('Hallo!')"&gt;
+&lt;/form&gt;
+</code></pre>
+  <p>Sobald der User also auf den Knopf klickt, wird „Hallo!“ ausgegeben.</p>
+
+  <p>
+    Ein wichtiger Punkt beim Programmieren ist das Kommentieren des Codes. Dies
+    hilft einerseits dem Programmierer selber später dabei, seinen Code auch
+    nach längerer Pause wieder zu verstehen. Außerdem erleichtert es anderen
+    Mitarbeitenden das Verständnis des Programms.
+  </p>
+
+  <p>
+    In JavaScript wird ein einzeiliger Kommentar mit zwei Schrägstrichen
+    eingeleitet:
+  </p>
+  <pre><code>
+// Dies ist ein Kommentar
+</code></pre>
+
+  <p>
+    Mehrzeilige Kommentare starten mit <code>/*</code> und enden mit
+    <code>*/</code>:
+  </p>
+  <pre><code>
+/* Dies ist ein mehrzeiliger Kommentar.
+Alles was zwischen den Begrenzern steht, wird nicht
+im Browser angezeigt. */
+</code></pre>
+
+  <p>
+    Abschließend sollte auch bedacht werden, dass bestimmte Browser/User
+    JavaScript deaktiviert haben, was die Funktionalität einer Seite
+    beeinflussen kann. Hierzu kann der <code>&lt;noscript&gt;</code>-Tag benutzt
+    werden, der Nutzern entweder signalisiert, dass diese Website JavaScript
+    benutzt, oder auf eine alternative Website verweist, die auch ohne
+    funktioniert.
+  </p>
+</div>

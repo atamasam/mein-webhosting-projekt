@@ -1,0 +1,176 @@
+<div>
+  <h2>
+    Vorlesung 6: DOM-Manipulation, JavaScript-Bibliotheken und Events (25.11)
+  </h2>
+  <p>
+    In dieser Vorlesung haben wir uns mit dem Document Object Model (DOM),
+    JavaScript-Bibliotheken wie jQuery und dem Umgang mit Events in JavaScript
+    beschäftigt. Diese Konzepte sind fundamental, wenn es darum geht,
+    interaktive Webseiten zu erstellen.
+  </p>
+
+  <h3>Document Object Model (DOM)</h3>
+  <p>
+    Das DOM ist eine strukturierte Darstellung einer Webseite in Form eines
+    Baumes, die es ermöglicht, auf alle Elemente zuzugreifen und sie zu
+    manipulieren. Um Elemente aus dem DOM zu selektieren, nutzen wir Methoden
+    wie:
+  </p>
+  <ul>
+    <li>
+      <code>document.getElementById()</code> – Wählt ein Element anhand seiner
+      ID aus.
+    </li>
+    <li>
+      <code>document.getElementsByTagName()</code> – Wählt alle Elemente eines
+      bestimmten Tags aus.
+    </li>
+    <li>
+      <code>document.querySelector()</code> – Wählt das erste Element, das einem
+      CSS-Selektor entspricht.
+    </li>
+    <li>
+      <code>document.querySelectorAll()</code> – Wählt alle Elemente, die einem
+      CSS-Selektor entsprechen.
+    </li>
+  </ul>
+  <p>
+    Das DOM hat jedoch auch seine Herausforderungen: Die Navigation durch den
+    Baum ist nicht immer einfach und zeitaufwendig. Ein weiteres Problem ist,
+    dass es keinen universellen Standard gibt, was dazu führt, dass verschiedene
+    Browser das DOM unterschiedlich interpretieren. Insbesondere der Internet
+    Explorer behandelt Events oft anders und erzeugt teilweise mehr Textknoten
+    als andere Browser.
+  </p>
+
+  <h3>JavaScript-Bibliotheken</h3>
+  <p>
+    JavaScript-Bibliotheken wie jQuery vereinfachen den Umgang mit häufigen
+    Aufgaben auf Webseiten, wie das Manipulieren von DOM-Elementen, das
+    Hinzufügen von Inhalten oder das Ändern von Attributen. Sie bieten eine
+    Sammlung von Funktionen, die oft viel Code sparen. Diese Bibliotheken werden
+    auf nahezu allen großen Webseiten eingesetzt, einschließlich Microsoft,
+    Twitter und Amazon.
+  </p>
+  <p>Ein Beispiel für die Einbindung von jQuery:</p>
+  <pre><code>&lt;script type="text/javascript" src="jQuery.js">&lt;/script></code></pre>
+  <p>Wichtige Vorteile von jQuery:</p>
+  <ul>
+    <li>Geringe Dateigröße (komprimiert nur 30 KByte).</li>
+    <li>Einfacher Umgang für Webdesigner durch CSS-basierte Syntax.</li>
+    <li>Sehr häufig in der Webentwicklung verwendet.</li>
+    <li>Kostenfrei und mit einer großen Entwickler-Community.</li>
+    <li>Enorme Anzahl an verfügbaren Plugins.</li>
+  </ul>
+
+  <h4>Methoden in jQuery</h4>
+  <p>jQuery bietet drei Haupttypen von Methoden:</p>
+  <ul>
+    <li>
+      <strong>Transparente Methoden:</strong> Diese Methoden verändern die
+      Sammlung von Elementen nicht und sind verkettbar.
+    </li>
+    <li>
+      <strong>Destruktive Methoden:</strong> Diese Methoden verändern die
+      Sammlung und sind ebenfalls verkettbar.
+    </li>
+    <li>
+      <strong>Terminierende Methoden:</strong> Diese Methoden beenden eine
+      Verkettung und geben kein jQuery-Objekt zurück.
+    </li>
+  </ul>
+  <p>Ein praktisches Beispiel für die Auswahl aller Links auf einer Seite:</p>
+  <pre><code>var linkList = $('a');</code></pre>
+
+  <h3>Events in JavaScript</h3>
+  <p>
+    Events wie Mausklicks oder Tastatureingaben sind wichtige Interaktionen auf
+    Webseiten. Wir haben uns mit verschiedenen Maus-Events beschäftigt, die in
+    JavaScript verwendet werden:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th style="border: 1px solid black; padding: 8px">Event</th>
+        <th style="border: 1px solid black; padding: 8px">Beschreibung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">click</td>
+        <td style="border: 1px solid black; padding: 8px">
+          Wird ausgelöst, wenn eine Maustaste gedrückt und wieder losgelassen
+          wird.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">dblclick</td>
+        <td style="border: 1px solid black; padding: 8px">
+          Wird ausgelöst, wenn die Maustaste zweimal schnell hintereinander
+          gedrückt wird.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">mouseover</td>
+        <td style="border: 1px solid black; padding: 8px">
+          Ähnlich wie <code>hover</code> in CSS, wird ausgelöst, wenn die Maus
+          über ein Element bewegt wird.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">mouseout</td>
+        <td style="border: 1px solid black; padding: 8px">
+          Wird ausgelöst, wenn die Maus ein Element verlässt.
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px">mousemove</td>
+        <td style="border: 1px solid black; padding: 8px">
+          Wird ausgelöst, wenn die Maus bewegt wird.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Beispiel: Event-Listener für einen Button:</p>
+  <pre><code>&lt;button onclick="function()">Klick mich!&lt;/button></code></pre>
+
+  <h4>jQuery-Event-Handling</h4>
+  <p>
+    jQuery vereinfacht die Verwaltung von Events. Zum Beispiel, um allen Bildern
+    ein <code>click</code>-Event hinzuzufügen:
+  </p>
+  <pre><code>$( 'img' ).click(showFullImg);</code></pre>
+
+  <h3>Übungen</h3>
+  <p>Die Übungen beinhalteten:</p>
+  <ul>
+    <li>
+      <strong>Gestaltung kreativer Überschriften:</strong> Anpassung von
+      Überschriften mit CSS und jQuery.
+    </li>
+    <li>
+      <strong>Automatische Zitate (Pull Quotes):</strong> Hervorhebung von
+      Zitaten aus Texten.
+    </li>
+    <li>
+      <strong>Akkordeon Register:</strong> Erstellen von ein- und ausklappbaren
+      Bereichen für die Strukturierung von Inhalten.
+    </li>
+  </ul>
+  <p>Beispielcode für Akkordeon Register:</p>
+  <pre><code>
+$('.accordion').click(function() {
+  $(this).next('.content').slideToggle();
+});
+  </code></pre>
+
+  <h3>Zusammenfassung</h3>
+  <p>
+    Zusammenfassend lässt sich sagen, dass das DOM und jQuery sehr hilfreiche
+    Werkzeuge für die Erstellung interaktiver Webseiten sind. Das DOM ermöglicht
+    es, die Struktur einer Seite zu verstehen und zu manipulieren, während
+    jQuery viele der gängigen Aufgaben vereinfacht. Events sind entscheidend für
+    die Interaktivität, und jQuery bietet eine benutzerfreundliche Möglichkeit,
+    mit diesen umzugehen.
+  </p>
+</div>

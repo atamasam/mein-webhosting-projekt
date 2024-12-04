@@ -1,0 +1,172 @@
+<div>
+  <h2>Vorlesung 4: Webseitengestaltung mit HTML und CSS (04.11)</h2>
+  <p>
+    Um eine Website zu erstellen, ist es wichtig, die grundlegende Struktur zu
+    planen. Dies kann in Form von Skizzen, sogenannten Wireframes, erfolgen –
+    entweder digital oder auf Papier. Diese Struktur wird dann mit den passenden
+    HTML- und CSS-Elementen umgesetzt.
+  </p>
+
+  <h3>HTML-Grundlagen</h3>
+  <p>
+    HTML (HyperText Markup Language) ist die Basis jeder Website. Die Sprache
+    besteht aus sogenannten Elementen, die durch Tags definiert werden. Es gibt
+    zwei Haupttypen:
+  </p>
+  <ul>
+    <li>
+      <strong>Block-Elemente:</strong> Diese stehen für sich allein, z. B.
+      <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>.
+    </li>
+    <li>
+      <strong>Inline-Elemente:</strong> Diese fügen sich in den Textfluss ein,
+      z. B. <code>&lt;q&gt;</code>, <code>&lt;strong&gt;</code>,
+      <code>&lt;img&gt;</code>.
+    </li>
+  </ul>
+
+  <h3>HTML-Tags für Zitate</h3>
+  <p>Es gibt zwei Arten von Zitaten in HTML:</p>
+  <ul>
+    <li><code>&lt;q&gt;</code>: Für kurze Zitate innerhalb eines Absatzes.</li>
+    <li>
+      <code>&lt;blockquote&gt;</code>: Für längere Zitate, die als
+      eigenständiger Block dargestellt werden.
+    </li>
+  </ul>
+  <p><strong>Beispiel:</strong></p>
+  <pre><code>
+<p>Hier ist ein kurzes Zitat: <q>Das ist ein Beispielzitat.</q></p>
+<blockquote>
+  Dies ist ein längeres Zitat, das über mehrere Zeilen geht und als Block hervorgehoben wird.
+</blockquote>
+</code></pre>
+
+  <h3>Zeilenumbrüche mit <code>&lt;br&gt;</code></h3>
+  <p>
+    Für gezielte Zeilenumbrüche innerhalb eines Textes wird das Tag
+    <code>&lt;br&gt;</code> verwendet. Es ist ein sogenanntes "halbes Element",
+    da es keinen Endtag hat.
+  </p>
+  <p><strong>Beispiel:</strong></p>
+  <pre><code>
+<p>Das ist ein normaler Text.</p>
+<p>Das ist ein Text<br>mit einem Zeilenumbruch.</p>
+</code></pre>
+
+  <h3>Listen</h3>
+  <p>HTML unterstützt geordnete und ungeordnete Listen:</p>
+  <ul>
+    <li>
+      <strong>Ungeordnete Liste:</strong> Mit <code>&lt;ul&gt;</code> und
+      <code>&lt;li&gt;</code>-Elementen.
+    </li>
+    <li>
+      <strong>Geordnete Liste:</strong> Mit <code>&lt;ol&gt;</code> und
+      <code>&lt;li&gt;</code>-Elementen.
+    </li>
+  </ul>
+  <p><strong>Beispiel:</strong></p>
+  <pre><code>
+<ul>
+  <li>Erster Punkt</li>
+  <li>Zweiter Punkt</li>
+</ul>
+<ol>
+  <li>Erster Punkt</li>
+  <li>Zweiter Punkt</li>
+</ol>
+</code></pre>
+
+  <h3>Sonderzeichen in HTML</h3>
+  <p>
+    Um Sonderzeichen wie <code>&lt;</code>, <code>&gt;</code> oder
+    <code>&amp;</code> darzustellen, werden sogenannte Entitäten verwendet:
+  </p>
+  <ul>
+    <li><code>&amp;lt;</code> für <code>&lt;</code> (kleiner als)</li>
+    <li><code>&amp;gt;</code> für <code>&gt;</code> (größer als)</li>
+    <li><code>&amp;amp;</code> für <code>&amp;</code> (und-Zeichen)</li>
+  </ul>
+
+  <h3>CSS-Grundlagen</h3>
+  <p>
+    CSS (Cascading Style Sheets) wird verwendet, um das Aussehen einer Website
+    zu gestalten:
+  </p>
+  <ul>
+    <li>
+      <strong>Selektor:</strong> Wählt ein Element aus, z. B. <code>p</code>,
+      <code>h1</code>.
+    </li>
+    <li>
+      <strong>Eigenschaften:</strong> Definieren das Aussehen, z. B.
+      <code>color</code> oder <code>background-color</code>.
+    </li>
+  </ul>
+  <p><strong>Beispiel:</strong></p>
+  <pre><code>
+p {
+  background-color: yellow;
+  color: blue;
+  border: 1px solid black;
+}
+</code></pre>
+
+  <h3>Externe CSS-Dateien einbinden</h3>
+  <p>
+    Statt CSS direkt in den <code>&lt;style&gt;</code>-Tags zu schreiben, kann
+    eine externe Datei eingebunden werden. Diese wird in der Regel
+    "stylesheet.css" oder "styles.css" genannt.
+  </p>
+  <pre><code>
+    &lt;!-- Im Head-Bereich der HTML-Datei &gt;
+    &lt;link type="text/css" rel="stylesheet" href="styles.css"&gt;
+    </code></pre>
+  <p>Beispiel-Inhalt der Datei <code>styles.css</code>:</p>
+  <pre><code>
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.highlight {
+  color: green;
+  font-weight: bold;
+}
+
+#unique {
+  color: orange;
+  text-decoration: underline;
+}
+</code></pre>
+
+  <h3>CSS-Vererbung</h3>
+  <p>
+    CSS-Eigenschaften werden an untergeordnete Elemente weitergegeben. Dieses
+    Prinzip nennt man Vererbung.
+  </p>
+  <p><strong>Beispiel:</strong></p>
+  <pre><code>
+body {
+  color: red;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: black; /* Überschreibt die Vererbung von body */
+}
+</code></pre>
+
+  <h3>Klassen und IDs in CSS</h3>
+  <p>
+    Um gezielt einzelne Elemente zu stylen, können Klassen und IDs verwendet
+    werden:
+  </p>
+  <pre><code>
+<p class="highlight">Dieser Text ist hervorgehoben.</p>
+<p id="unique">Dieser Text ist einzigartig.</p>
+
+
+</code></pre>
+</div>
