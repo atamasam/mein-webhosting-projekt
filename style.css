@@ -562,4 +562,16 @@ th {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .navbar-search-wrapper {
+    max-width: 200px; /* Reduziert die maximale Breite */
+    width: 80%; /* Dynamische Anpassung für verschiedene Geräte */
+    left: auto; /* Entfernt die fixe Zentrierung */
+    transform: none; /* Entfernt das Verschieben */
+    margin: 0 auto; /* Zentriert über den Rand */
+  }
+
+  .navbar-search input {
+    padding: 4px 8px; /* Minimalistisches Padding */
+    font-size: 14px; /* Kleinere Schriftgröße für Mobilgeräte */
+  }
 }
