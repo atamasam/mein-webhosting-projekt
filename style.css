@@ -561,26 +561,100 @@ th {
 }
 
 /* Responsive Design */
-/* Für iPhone 13 und ähnliche Geräte (375px - 390px breite) */
+/* Standard Design */
 @media only screen and (max-width: 390px) {
+  /* Body und allgemeine Container */
   body {
-    font-size: 16px;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
   }
 
+  /* Header / Navbar */
   header {
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-
-  .button {
-    padding: 12px 20px;
-    font-size: 16px;
-  }
-
-  .navigation {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding-top: 10px; /* Weniger Padding oben */
+    padding-bottom: 10px; /* Normales Padding unten */
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Navigation Links */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+  }
+
+  /* Searchbar */
+  .navbar .searchbar {
+    width: 70%; /* Searchbar schmaler */
+    max-width: 300px; /* Maximale Breite für die Searchbar */
+    margin: 0 auto; /* Zentriert die Searchbar */
+    padding: 8px; /* Weniger Innenabstand */
+    font-size: 14px; /* Kleinere Schriftgröße */
+  }
+
+  /* Lecture Container */
+  .lecture-container {
+    padding-top: 10px; /* Weniger Padding oben */
+    padding-bottom: 20px; /* Normales Padding unten */
+    margin: 10px 15px;
+  }
+
+  /* Titel und Text im Lecture Container */
+  .lecture-container h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .lecture-container p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Buttons */
+  .button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    margin-top: 20px;
+  }
+
+  /* Links im Footer */
+  footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
   }
 }
