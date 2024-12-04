@@ -573,6 +573,20 @@ th {
   .navbar-search input {
     padding: 6px 10px; /* Leicht reduziertes Padding */
     font-size: 14px; /* Angepasste Schriftgröße */
-    border-radius: 6px; /* Kleinere Ecken für ein kompaktes Design */
+    border-radius: 6px; /* Kleinere Ecken für ein kompakteres Design */
+  }
+
+  /* Navbar-Logo */
+  .navbar-logo {
+    font-size: 18px; /* Kleinere Schriftgröße für das Logo */
+    font-weight: bold;
+    color: #007aff;
+  }
+
+  /* Container */
+  .container {
+    padding: 20px; /* Reduziertes Padding */
+    max-width: 90%; /* Breite flexibler auf Mobilgeräten */
+    margin: 80px 10px 10px; /* Anpassung an kleinere Bildschirme */
   }
 }
