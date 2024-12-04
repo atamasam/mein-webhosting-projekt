@@ -607,11 +607,11 @@ th {
   }
 
   #backButton {
-    left: 8px; /* Kleiner Abstand von der linken Wand */
+    left: 6px; /* Kleiner Abstand von der linken Wand */
   }
 
   #nextButton {
-    right: 8px; /* Kleiner Abstand von der rechten Wand */
+    right: 6px; /* Kleiner Abstand von der rechten Wand */
   }
 
   .small-button.show {
