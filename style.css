@@ -592,29 +592,30 @@ th {
 
   .small-button {
     position: fixed; /* Fixierte Position */
-    bottom: 10%; /* Abstand vom unteren Rand */
-    width: 40px; /* Kleinere Breite */
-    height: 40px; /* Kleinere Höhe */
-    font-size: 12px; /* Kleinere Schriftgröße */
-    border-radius: 50%; /* Runde Buttons */
-    background-color: #007aff; /* Button-Farbe */
+    bottom: 15%; /* Position im unteren Viertel */
+    width: 60px; /* Größe der Buttons */
+    height: 60px;
+    font-size: 14px; /* Kleinere Schriftgröße */
+    border-radius: 12px; /* Leicht abgerundete Ecken */
+    background-color: #007aff; /* Standardfarbe der Buttons */
     color: white; /* Schriftfarbe */
     display: flex; /* Zentrierter Text */
-    align-items: center; /* Vertikal zentrieren */
-    justify-content: center; /* Horizontal zentrieren */
-    z-index: 1000; /* Immer im Vordergrund */
+    align-items: center; /* Vertikal zentriert */
+    justify-content: center; /* Horizontal zentriert */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    z-index: 1000; /* Buttons immer sichtbar */
   }
 
   #backButton {
-    left: 20px; /* Abstand von der linken Seite */
+    left: 25%; /* Etwas seitlich, nicht ganz am Rand */
   }
 
   #nextButton {
-    right: 20px; /* Abstand von der rechten Seite */
+    right: 25%; /* Etwas seitlich, nicht ganz am Rand */
   }
 
   .small-button:hover {
-    background-color: #005bb5; /* Etwas dunklere Farbe beim Hover */
+    background-color: #005bb5; /* Hover-Farbe */
   }
 
   /* Lecture Container */
