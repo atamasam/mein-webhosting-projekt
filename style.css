@@ -561,6 +561,7 @@ th {
 }
 
 /* Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
     position: absolute;
@@ -588,10 +589,7 @@ th {
     padding: 20px; /* Reduziertes Padding, gleich auf allen Seiten */
     max-width: 90%; /* Breite flexibler auf Mobilgeräten */
     margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
-    overflow-y: auto; /* Ermöglicht das Scrollen des Containers */
-    max-height: calc(
-      100vh - 150px
-    ); /* Maximale Höhe für den Container auf mobilen Geräten */
+    position: relative; /* Sicherstellen, dass Buttons innerhalb des Containers positioniert werden können */
   }
 
   /* Buttons */
@@ -606,22 +604,25 @@ th {
     color: white;
     transition: background-color 0.3s ease;
     opacity: 0; /* Startet unsichtbar */
-    margin-top: 20px; /* Abstand nach unten */
-    margin-left: 10px;
-    margin-right: 10px;
-    display: none; /* Buttons unsichtbar standardmäßig */
+    position: absolute; /* Absolute Positionierung */
+    bottom: 20px; /* Abstand vom unteren Rand */
   }
 
   #backButton {
-    margin-left: 0; /* Verhindert einen großen Abstand links */
+    left: 10px; /* Kleiner Abstand von der linken Wand */
   }
 
   #nextButton {
-    margin-right: 0; /* Verhindert einen großen Abstand rechts */
+    right: 10px; /* Kleiner Abstand von der rechten Wand */
   }
 
   .small-button.show {
-    display: inline-block; /* Zeigt die Buttons, wenn sie sichtbar werden */
+    opacity: 1; /* Buttons sichtbar machen */
+    animation: fadeIn 0.5s forwards; /* Einblendungsanimation */
+  }
+
+  .small-button.hide {
+    animation: fadeOut 0.5s forwards; /* Ausblendungsanimation */
   }
 
   .small-button:hover {
