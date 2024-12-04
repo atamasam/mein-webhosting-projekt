@@ -561,7 +561,6 @@ th {
 }
 
 /* Responsive Design */
-/* Responsive Design */
 @media (max-width: 768px) {
   .navbar-search-wrapper {
     position: absolute;
@@ -589,7 +588,16 @@ th {
     padding: 20px; /* Reduziertes Padding, gleich auf allen Seiten */
     max-width: 90%; /* Breite flexibler auf Mobilgeräten */
     margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
-    position: relative; /* Sicherstellen, dass Buttons innerhalb des Containers positioniert werden können */
+  }
+
+  /* Lecture Container */
+  #lectureContainer {
+    display: block; /* Sicherstellen, dass es sichtbar ist */
+    margin: 0 auto; /* Horizontale Zentrierung */
+    width: 90%; /* Maximale Breite auf Mobilgeräten */
+    max-width: 600px; /* Maximale Breite für größere Bildschirme */
+    padding: 30px 20px 20px; /* Padding oben und unten im Container */
+    position: relative; /* Damit die Buttons relativ zum Container positioniert werden können */
   }
 
   /* Buttons */
@@ -605,15 +613,17 @@ th {
     transition: background-color 0.3s ease;
     opacity: 0; /* Startet unsichtbar */
     position: absolute; /* Absolute Positionierung */
-    bottom: 20px; /* Abstand vom unteren Rand */
+    bottom: 20px; /* Abstand vom unteren Rand des Containers */
+    left: 50%; /* Horizontal zentriert unter dem Container */
+    transform: translateX(-50%); /* Zentrieren */
   }
 
   #backButton {
-    left: 10px; /* Kleiner Abstand von der linken Wand */
+    left: 10px; /* Etwas Abstand vom linken Rand */
   }
 
   #nextButton {
-    right: 10px; /* Kleiner Abstand von der rechten Wand */
+    right: 10px; /* Etwas Abstand vom rechten Rand */
   }
 
   .small-button.show {
@@ -627,14 +637,5 @@ th {
 
   .small-button:hover {
     background-color: #005bb5; /* Dunkleres Blau */
-  }
-
-  /* Zentrieren des lectureContainers */
-  #lectureContainer {
-    display: block; /* Sicherstellen, dass es sichtbar ist, wenn benötigt */
-    margin: 0 auto; /* Horizontale Zentrierung */
-    width: 90%; /* Maximale Breite auf Mobilgeräten */
-    max-width: 600px; /* Maximale Breite für größere Bildschirme */
-    padding: 20px;
   }
 }
