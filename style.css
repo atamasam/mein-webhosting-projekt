@@ -610,7 +610,7 @@ th {
     display: block; /* Sicherstellen, dass es sichtbar ist */
     margin: 0 auto; /* Horizontale Zentrierung */
     width: 90%; /* Maximale Breite auf Mobilgeräten */
-    max-width: 600px; /* Maximale Breite für größere Bildschirme */
+    max-width: 100%; /* Maximale Breite für größere Bildschirme */
     padding: 100px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
     position: relative; /* Position für mögliche weitere Anpassungen */
   }
