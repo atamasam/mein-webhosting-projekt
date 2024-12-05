@@ -1,46 +1,101 @@
 <div>
   <h2>Vorlesung 3: Fortgeschrittene JavaScript-Konzepte (28.10)</h2>
+
   <p>
     Zum Anfang der dritten Vorlesung gab es wieder einen kleinen HTML-Einschub.
     Hierbei fokussierten wir uns auf das HT (Hypertext) in HTML und haben den
     <code>&lt;a&gt;</code>-Tag kennengelernt, mit dem auf andere Seiten verlinkt
     werden kann.
   </p>
-  <p>Dieser funktioniert folgendermaßen:</p>
-  <pre><code>&lt;a href="https://link.de"&gt;Linktext&lt;/a&gt;</code></pre>
+
+  <h3>Der <code>&lt;a&gt;</code>-Tag im Detail</h3>
   <p>
-    Neben dem Namen des Tags wird das Attribut <code>href</code> benutzt, das
-    das Ziel des Links angibt. Innerhalb des Tags steht der normale Text des
-    Links, der auf der Website angezeigt wird und angeklickt werden kann.
-    Anstelle von externen Websites kann auch auf andere HTML-Dateien verlinkt
-    werden. Wenn diese im gleichen Ordner liegt, ist dazu als Ziel des Links
-    lediglich der volle Name der Datei nötig, z.B. <code>elixiere.html</code>.
+    Der <code>&lt;a&gt;</code>-Tag, auch als Anker-Tag bekannt, wird verwendet,
+    um Links zu erstellen. Diese Links können auf externe Websites oder interne
+    Seiten innerhalb derselben Website verweisen.
+  </p>
+  <p>Der grundlegende Aufbau eines Links sieht folgendermaßen aus:</p>
+  <pre><code>&lt;a href="https://link.de"&gt;Linktext&lt;/a&gt;</code></pre>
+
+  <h4>Attribute des <code>&lt;a&gt;</code>-Tags</h4>
+  <ul>
+    <li>
+      <code>href</code>: Das Attribut <code>href</code> gibt die Ziel-URL des
+      Links an. Ohne dieses Attribut funktioniert der Link nicht.
+    </li>
+    <li>
+      <code>target</code>: Mit diesem Attribut kann festgelegt werden, ob der
+      Link in einem neuen Tab/Fenster geöffnet werden soll (<code>_blank</code>)
+      oder im gleichen Fenster (<code>_self</code>).
+    </li>
+    <li>
+      <code>title</code>: Gibt zusätzliche Informationen über den Link, die beim
+      Hover angezeigt werden.
+    </li>
+  </ul>
+
+  <h3>Links zu internen Seiten</h3>
+  <p>
+    Neben externen Websites können Links auch auf andere HTML-Dateien innerhalb
+    derselben Website verweisen. Dies ist besonders nützlich, wenn man eine
+    mehrseitige Website mit verschiedenen Unterseiten hat.
   </p>
   <pre><code>&lt;a href="elixiere.html"&gt;Elixiere&lt;/a&gt;</code></pre>
+
+  <h4>Empfohlene Ordnerstruktur</h4>
   <p>
-    Da man so aber bei vielen Unterseiten schnell den Überblick verlieren würde,
-    da sich viele Dateien in einem Ordner befinden, empfiehlt es sich, eine
-    Ordnerstruktur anzulegen.
+    Wenn die Website viele Seiten enthält, ist es ratsam, eine Ordnerstruktur
+    anzulegen, um den Überblick zu behalten und die Navigation zu vereinfachen.
+    Dadurch können Links übersichtlicher organisiert werden.
   </p>
+  <ul>
+    <li>
+      <strong>Beispiel:</strong> Eine Ordnerstruktur für die Website könnte so
+      aussehen:
+      <ul>
+        <li><code>index.html</code> (Startseite)</li>
+        <li><code>bar/bar.html</code> (Unterseite "Bar")</li>
+        <li><code>getraenke/getraenke.html</code> (Unterseite "Getränke")</li>
+        <li><code>images/</code> (Ordner für Bilder)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Verlinken zwischen verschiedenen Ordnern</h3>
   <p>
-    Wir haben das an dem Beispiel einer Website für die „KopfüBar“ ausprobiert.
-    Dazu wurden die einzelnen Unterseiten in entsprechend benannte Ordner
-    gepackt und auch die Bilder in ein gemeinsames Verzeichnis.
-  </p>
-  <p>
-    Um nun von <code>bar.html</code> auf <code>getraenke.html</code> zu
-    verlinken, muss zusätzlich der Dateipfad angegeben werden.
+    Wenn eine Seite aus einem Unterordner auf eine andere Seite in einem anderen
+    Ordner verlinkt, muss der vollständige Pfad angegeben werden. Zum Beispiel
+    könnte ein Link von <code>bar.html</code> auf <code>getraenke.html</code> so
+    aussehen:
   </p>
   <pre><code>&lt;a href="getraenke/getraenke.html"&gt;Getränke&lt;/a&gt;</code></pre>
+
+  <h4>Verlinken auf die übergeordnete Seite</h4>
   <p>
-    Wenn nun aber z.B. die Unterseite der Getränke zurück auf die Startseite
-    verweisen will, muss klargestellt werden, dass diese in dem Ordner darüber
-    liegt. Um dies anzugeben, werden zwei Punkte benutzt <code>../</code>.
+    Um von einer Unterseite auf eine Seite im übergeordneten Ordner zu
+    verlinken, kann man das Präfix <code>../</code> verwenden. Dieses zeigt an,
+    dass die gewünschte Datei eine Ebene höher im Verzeichnisbaum liegt.
   </p>
   <pre><code>&lt;a href="../bar.html"&gt;Startseite&lt;/a&gt;</code></pre>
+
+  <h3>Wichtige Hinweise für die Verlinkung</h3>
+  <ul>
+    <li>
+      Achte darauf, dass du bei internen Links immer die Dateiendung angibst,
+      z.B. <code>.html</code>. Andernfalls kann der Browser die Datei nicht
+      finden und lädt sie nicht.
+    </li>
+    <li>
+      Stelle sicher, dass der Pfad korrekt ist. Eine falsche Ordnerstruktur oder
+      ein fehlender Dateiname führt dazu, dass der Link nicht funktioniert.
+    </li>
+  </ul>
+
+  <h3>Zusammenfassung</h3>
   <p>
-    Wichtig bei Verlinkungen von Unterseiten oder anderen Dateien ist dabei
-    immer, auf die Dateiendungen zu achten und diese mit anzugeben. Andernfalls
-    kann der Browser diese nicht laden.
+    Der <code>&lt;a&gt;</code>-Tag ist ein grundlegendes und wichtiges Element
+    in HTML, das es ermöglicht, Navigationslinks zwischen Seiten zu erstellen.
+    Durch die richtige Verwendung von Pfaden und Ordnerstrukturen lässt sich die
+    Navigation auf Webseiten optimieren und übersichtlich gestalten.
   </p>
 </div>

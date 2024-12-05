@@ -142,28 +142,69 @@
   <pre><code>$( 'img' ).click(showFullImg);</code></pre>
 
   <h3>Übungen</h3>
-  <p>Die Übungen beinhalteten:</p>
+  <p>
+    Die Übungen umfassten verschiedene Techniken zur Formatierung von Texten.
+    Ein Schwerpunkt lag auf der automatischen Erstellung von hervorgehobenen
+    Zitaten (Pull Quotes), um wichtige Textstellen optisch hervorzuheben.
+  </p>
   <ul>
     <li>
-      <strong>Gestaltung kreativer Überschriften:</strong> Anpassung von
-      Überschriften mit CSS und jQuery.
-    </li>
-    <li>
-      <strong>Automatische Zitate (Pull Quotes):</strong> Hervorhebung von
-      Zitaten aus Texten.
-    </li>
-    <li>
-      <strong>Akkordeon Register:</strong> Erstellen von ein- und ausklappbaren
-      Bereichen für die Strukturierung von Inhalten.
+      <strong>Automatische Zitate (Pull Quotes):</strong> Mithilfe eines Scripts
+      können bestimmte Textstellen automatisch als Zitate dupliziert und optisch
+      hervorgehoben werden.
     </li>
   </ul>
-  <p>Beispielcode für Akkordeon Register:</p>
+
+  <h4>JavaScript-Script zur Umsetzung:</h4>
+  <p>
+    Das folgende Script durchsucht die Seite nach Elementen mit der Klasse
+    <code>pq</code> und erstellt eine Kopie davon. Die Kopie wird mit der Klasse
+    <code>pullquote</code> versehen und vor dem ursprünglichen Element
+    eingefügt. Dadurch wird das Zitat sowohl im Fließtext als auch als
+    hervorgehobenes Element dargestellt:
+  </p>
   <pre><code>
-$('.accordion').click(function() {
-  $(this).next('.content').slideToggle();
-});
+    &lt;script type="text/javascript"&gt;
+      $(document).ready(function () {
+        $("span.pq").each(function () {
+          var quote = $(this).clone();
+          quote.removeClass("pq");
+          quote.addClass("pullquote");
+          $(this).before(quote);
+        });
+      });
+    &lt;/script&gt;
   </code></pre>
 
+  <h4>HTML-Struktur des Body-Bereichs:</h4>
+  <p>
+    Die HTML-Struktur enthält ein Beispiel für einen hervorgehobenen Text. Der
+    ursprüngliche Text hat die Klasse <code>pq</code>, während der
+    hervorgehobene Text durch das Script automatisch die Klasse
+    <code>pullquote</code> erhält:
+  </p>
+  <pre><code>
+    &lt;span class="pq"&gt;
+      Vestibulum semper tincidunt sem. Vestibulum ante ipsum primis in
+      faucibus orci luctus et ultrices posuere cubilia Curae;
+    &lt;/span&gt;
+    &lt;span class="pullquote"&gt;
+      Donec pulvinar, justo non fringilla dapibus, sapien tortor cursus
+      erat, at posuere magna nisi tincidunt sapien.
+    &lt;/span&gt;
+  </code></pre>
+
+  <h4>Ergebnis:</h4>
+  <p>
+    Nach der Ausführung des Scripts wird das Zitat aus dem Fließtext automatisch
+    als hervorgehobenes Element dargestellt. Im folgenden Bild sehen Sie, wie
+    der Pull Quote visuell präsentiert wird:
+  </p>
+  <img
+    class="lecture-image"
+    src="pictures/05_content/pullquotes.png"
+    alt="Darstellung von Pullquotes"
+  />
   <h3>Zusammenfassung</h3>
   <p>
     Zusammenfassend lässt sich sagen, dass das DOM und jQuery sehr hilfreiche
