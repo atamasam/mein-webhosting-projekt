@@ -65,7 +65,7 @@ function goBack() {
 
 function searchLectures() {
   const input = document.getElementById("searchInput").value.toLowerCase();
-  const buttons = document.querySelectorAll(".button");
+  const buttons = document.querySelectorAll(".button, .button-web");
 
   buttons.forEach((button) => {
     const text = button.textContent.toLowerCase();
