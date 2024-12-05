@@ -618,6 +618,6 @@ th {
     max-width: 100%;
   }
   .content-test {
-    max-width: 75%; /* Stellt sicher, dass das Element nicht breiter wird als der Container */
+    max-width: 90%; /* Stellt sicher, dass das Element nicht breiter wird als der Container */
   }
 }
