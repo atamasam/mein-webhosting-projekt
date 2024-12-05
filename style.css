@@ -614,4 +614,7 @@ th {
     padding: 100px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
     position: relative; /* Position für mögliche weitere Anpassungen */
   }
+  .content {
+    max-width: 100%;
+  }
 }
