@@ -613,12 +613,14 @@ th {
     max-width: 100%; /* Maximale Breite für größere Bildschirme */
     padding: 100px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
     position: relative; /* Position für mögliche weitere Anpassungen */
+    border: 2px solid red; /* Fügt einen schwarzen Rand mit einer Dicke von 2px hinzu */
   }
   .content {
     max-width: 100%;
+    border: 2px solid blue; /* Fügt einen schwarzen Rand mit einer Dicke von 2px hinzu */
   }
   .content3 {
-    max-width: 100%; /* Stellt sicher, dass das Element nicht breiter wird als der Container */
+    max-width: 60%; /* Stellt sicher, dass das Element nicht breiter wird als der Container */
     border: 2px solid #000; /* Fügt einen schwarzen Rand mit einer Dicke von 2px hinzu */
     padding: 10px; /* Optional: Fügt etwas Abstand innerhalb des divs hinzu */
   }
