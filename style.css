@@ -504,6 +504,17 @@ th {
 }
 
 @media (max-width: 768px) {
+  html,
+  body {
+    width: 100%; /* Setzt die Breite von html und body auf 100% */
+    margin: 0; /* Entfernt Standardabstände */
+    padding: 0; /* Entfernt Standardabstände */
+    overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  }
+
+  * {
+    box-sizing: border-box; /* Setzt alle Elemente auf border-box, um Padding/Bordern in die Breite einzubeziehen */
+  }
   .navbar-search-wrapper {
     position: absolute;
     left: 50%; /* Zentral bleibt erhalten */
