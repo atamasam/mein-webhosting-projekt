@@ -97,11 +97,11 @@ body {
 }
 
 #backButton {
-  left: 100px; /* Positioniert den Zurück-Button auf der linken Seite */
+  left: 10%; /* Positioniert den Zurück-Button 10% vom linken Rand des Elternelements */
 }
 
 #nextButton {
-  right: 100px; /* Positioniert den Nächste-Button auf der rechten Seite */
+  right: 9%; /* Positioniert den Nächste-Button 10% vom rechten Rand des Elternelements */
 }
 
 .small-button.show {
@@ -170,7 +170,7 @@ h2 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   padding: 20px;
-  background-color: #f5f5f7; /* Helles Grau */
+  background-color: #ffffff; /* Weiß */
   border-radius: 8px;
   width: 100%;
   max-width: 55%; /* Maximale Breite auf 100% setzen */
@@ -503,7 +503,7 @@ th {
   background-color: #45a049;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 877px) {
   html,
   body {
     width: 100%; /* Setzt die Breite von html und body auf 100% */
