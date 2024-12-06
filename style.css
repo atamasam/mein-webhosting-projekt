@@ -529,7 +529,7 @@ th {
   .container {
     padding: 20px; /* Reduziertes Padding, gleich auf allen Seiten */
     max-width: 90%; /* Breite flexibler auf Mobilgeräten */
-    margin: 80px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
+    margin: 70px auto 10px; /* Zentriert und angepasst für kleinere Bildschirme */
   }
 
   /* Buttons ausblenden */
