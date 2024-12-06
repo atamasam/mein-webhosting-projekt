@@ -565,13 +565,13 @@ th {
     margin: 70px auto 20px; /* Vertikale Margin von 120px oben, auto für horizontale Zentrierung, 20px unten */
     width: 90%; /* Maximale Breite auf Mobilgeräten */
     max-width: 100%; /* Maximale Breite für größere Bildschirme */
-    padding: 30px 30px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
+    padding: 20px 20px 20px; /* Mehr Padding oben (100px) und angepasst unten (20px) */
     position: relative; /* Position für mögliche weitere Anpassungen */
   }
   .content {
     max-width: 100%;
   }
   .content-test {
-    max-width: 85%; /* Stellt sicher, dass das Element nicht breiter wird als der Container */
+    max-width: 100%; /* Stellt sicher, dass das Element nicht breiter wird als der Container */
   }
 }
