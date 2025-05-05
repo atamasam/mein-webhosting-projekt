@@ -1,12 +1,12 @@
 let currentLectureIndex = 0;
 const lectures = [
-  "content/01_content.html",
-  "content/02_content.html",
-  "content/03_content.html",
-  "content/04_content.html",
-  "content/05_content.html",
-  "content/06_content.html",
-  "content/schwerpunkt.html", // Schwerpunkt als normale Vorlesung behandeln
+  "content/Semester3/01_content.html",
+  "content/Semester3/02_content.html",
+  "content/Semester3/03_content.html",
+  "content/Semester3/04_content.html",
+  "content/Semester3/05_content.html",
+  "content/Semester3/06_content.html",
+  "content/Semester3/schwerpunkt.html", // Schwerpunkt als normale Vorlesung behandeln
 ];
 
 function showContent(lecture) {
