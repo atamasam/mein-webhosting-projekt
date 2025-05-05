@@ -1,0 +1,86 @@
+<div>
+  <h2>
+    Vorlesung 2: Einführung in die Datenübertragung und Netzwerkprogrammierung
+    (07.04.2025)
+  </h2>
+  <p>
+    In der zweiten Lektion haben wir uns mit dem Konzept der Datenübertragung
+    beschäftigt und untersucht, wie Informationen in Java gespeichert werden
+    können, um sie für andere Programme zugänglich zu machen. Ein besonderer
+    Fokus lag auf dem Schreiben von Strings in eine Textdatei.
+  </p>
+
+  <h3>Einführung in die Dateiverwaltung</h3>
+  <p>
+    Zur Speicherung von Daten wird der <code>FileWriter</code> verwendet. Mit
+    diesem kann eine Datei geöffnet oder erstellt werden, und Daten in die Datei
+    geschrieben werden.
+  </p>
+  <p>
+    Für den Zugriff auf Dateien wird die <code>File</code>-Klasse verwendet, mit
+    der es möglich ist, Objekte zu erzeugen, die eine Datei oder einen Pfad
+    repräsentieren. Auch das Erstellen neuer Verzeichnisse ist mit dieser Klasse
+    möglich.
+  </p>
+  <p>
+    Zum effizienteren Schreiben von Daten wird der
+    <code>BufferedWriter</code> genutzt. Dieser sammelt Daten in einem Puffer
+    und schreibt sie erst dann in die Datei, wenn der Puffer voll ist.
+  </p>
+  <p>
+    Ähnlich funktioniert das Lesen von Dateien mit einem
+    <code>FileReader</code> und einem <code>BufferedReader</code>. Der
+    <code>BufferedReader</code> liest Zeile für Zeile und verarbeitet jede Zeile
+    nacheinander.
+  </p>
+
+  <h3>Übung: Textdatei kopieren</h3>
+  <p>
+    In der Übung haben wir eine Textdatei in Java „kopiert“, indem wir den
+    Inhalt einer .txt-Datei mit einem <code>BufferedReader</code> und einem
+    <code>FileReader</code> ausgelesen und anschließend mit einem
+    <code>BufferedWriter</code> und einem <code>FileWriter</code> in eine neue
+    Datei geschrieben haben. Dabei wurden Zeilenumbrüche und andere
+    Formatierungen korrekt übernommen.
+  </p>
+
+  <h3>Netzwerkprogrammierung mit Sockets</h3>
+  <p>
+    Im weiteren Verlauf der Vorlesung haben wir uns mit der
+    Netzwerkkommunikation über Sockets beschäftigt. Es wurde erläutert, wie
+    Daten zwischen einem Client und einem Server ausgetauscht werden können. Der
+    Client muss dabei den Server kennen, während der Server alle verbundenen
+    Clients verwaltet.
+  </p>
+
+  <h4>Schritte zur Verbindung:</h4>
+  <ul>
+    <li>Die Verbindung zwischen dem Server und dem Client herstellen.</li>
+    <li>Nachrichten an den Server senden.</li>
+    <li>Nachrichten vom Server empfangen.</li>
+  </ul>
+
+  <h3>Sockets in Java</h3>
+  <p>
+    Sockets stellen die Netzwerkverbindung zwischen zwei Geräten dar. In Java
+    wird dafür die IP-Adresse und eine TCP-Portnummer verwendet. Bestimmte
+    Portnummern sind für Dienste wie HTTP oder FTP reserviert, während Ports
+    zwischen 1024 und 65535 in der Regel frei gewählt werden können, jedoch mit
+    dem Systemadministrator abgestimmt werden sollten.
+  </p>
+  <p>
+    Zum Lesen von Daten aus dem Socket wird ein
+    <code>InputStreamReader</code> verwendet, der mit einem
+    <code>BufferedReader</code> verbunden wird. Zum Schreiben in den Socket wird
+    ein <code>PrintWriter</code> eingesetzt, der Nachrichten an den Server
+    sendet.
+  </p>
+
+  <h3>Übung: Tipps des Tages austauschen</h3>
+  <p>
+    In dieser Übung haben wir einen Client und einen Server programmiert, die
+    „Tipps des Tages“ austauschten. Die Tipps wurden als Zeichenketten auf dem
+    Server gespeichert und vom Client abgerufen. Der Client gab diese dann in
+    der Konsole aus.
+  </p>
+</div>

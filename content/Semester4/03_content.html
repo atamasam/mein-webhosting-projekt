@@ -1,0 +1,82 @@
+<div>
+  <h2>Vorlesung 3: Messaging-Client mit Multithreading (14.04.2025)</h2>
+  <p>
+    In der heutigen Lehrveranstaltung haben wir die Erstellung eines
+    Messaging-Clients besprochen, der Benutzern das Austauschen von Nachrichten
+    über das Internet ermöglicht. Ziel war es, eine robuste Anwendung zu
+    entwickeln, die über Text oder Sprache kommunizieren kann.
+  </p>
+
+  <h3>Chat-Client in Java</h3>
+  <p>
+    Wir haben dazu einen Chat-Client in Java umgesetzt und dabei grundlegende
+    Konzepte wie <strong>Sockets</strong>, <strong>Threads</strong> und
+    <strong>Multithreading</strong> verwendet.
+  </p>
+  <p>
+    Der Client bietet eine einfache grafische Oberfläche mit folgenden
+    Elementen:
+  </p>
+  <ul>
+    <li>Ein Textbereich für den Chatverlauf</li>
+    <li>Ein Eingabefeld für neue Nachrichten</li>
+    <li>Einen Button zum Absenden der Nachricht</li>
+  </ul>
+  <p>
+    Ein <code>ButtonListener</code> überträgt die eingegebenen Nachrichten an
+    den Server.
+  </p>
+
+  <h3>Multithreading und Threads in Java</h3>
+  <p>
+    Threads ermöglichen das gleichzeitige Senden und Empfangen von Nachrichten
+    und verhindern, dass die Anwendung blockiert. Mithilfe von Multithreading
+    bleibt die Oberfläche reaktionsschnell.
+  </p>
+  <p>
+    In Java erfolgt die Multithread-Programmierung mit der Klasse
+    <code>Thread</code> oder dem Interface <code>Runnable</code>. Die
+    auszuführende Logik wird in der Methode <code>run()</code> definiert.
+  </p>
+
+  <h4>Zustände eines Threads</h4>
+  <ul>
+    <li>
+      <strong>New:</strong> Der Thread wurde erstellt, aber noch nicht
+      gestartet.
+    </li>
+    <li><strong>Runnable:</strong> Der Thread ist bereit zur Ausführung.</li>
+    <li><strong>Running:</strong> Der Thread wird aktuell ausgeführt.</li>
+    <li>
+      <strong>Terminated:</strong> Der Thread hat seine Ausführung beendet.
+    </li>
+  </ul>
+  <p>
+    Die Steuerung übernimmt der <strong>Thread-Scheduler</strong>, der bestimmt,
+    wann welcher Thread ausgeführt wird.
+  </p>
+
+  <h4>Probleme bei paralleler Ausführung</h4>
+  <ul>
+    <li>
+      <strong>Race Conditions:</strong> Unvorhersehbare Ergebnisse durch
+      gleichzeitigen Zugriff auf gemeinsame Ressourcen.
+    </li>
+    <li>
+      <strong>Deadlocks:</strong> Zwei oder mehr Threads blockieren sich
+      gegenseitig dauerhaft.
+    </li>
+  </ul>
+  <p>
+    Um solche Probleme zu vermeiden, können kritische Codeabschnitte mit
+    <code>synchronized</code> geschützt werden.
+  </p>
+
+  <h3>Übung: Einfacher Chat-Server und -Client</h3>
+  <p>
+    Am Ende der Sitzung haben wir einen einfachen Chat-Server und -Client
+    programmiert. Der Server speichert die empfangenen Nachrichten und verteilt
+    sie an alle verbundenen Clients. Der Client zeigt empfangene Nachrichten in
+    der Konsole an.
+  </p>
+</div>

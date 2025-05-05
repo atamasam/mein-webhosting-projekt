@@ -115,6 +115,9 @@ body {
 .small-button:hover {
   background-color: #005bb5; /* Dunkleres Blau */
 }
+.schwerpunkt {
+  color: #4caf50;
+}
 h2 {
   color: #007aff; /* Apple Blau */
 }

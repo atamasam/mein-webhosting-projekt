@@ -1,0 +1,58 @@
+<div>
+  <h2>Vorlesung 4: Chat-Client/-Server und Einführung in PHP (28.04.2025)</h2>
+  <p>
+    Diese Vorlesung drehte sich um die Entwicklung eines Chat-Clients und
+    -Servers. Der Schwerpunkt lag auf der Implementierung eines einfachen
+    Servers und der Gestaltung einer grafischen Oberfläche für den Client.
+  </p>
+
+  <h3>Server mit Multithreading</h3>
+  <p>
+    Der Server wurde so programmiert, dass er mehrere Clients gleichzeitig
+    bedienen kann. Ein <strong>ServerSocket</strong> nimmt Verbindungen auf Port
+    <code>4243</code> an. Für jeden neuen Client wird ein eigener
+    <strong>Thread</strong> gestartet.
+  </p>
+  <p>
+    Die Kommunikation zwischen Server und Clients übernimmt eine innere Klasse
+    namens <code>ClientHandler</code>, die für jede Client-Verbindung zuständig
+    ist. Empfangen Nachrichten werden an alle verbundenen Clients verteilt.
+  </p>
+
+  <h3>Grafische Oberfläche des Clients</h3>
+  <p>
+    Der Client wurde benutzerfreundlich gestaltet. Eine eigene Klasse verwaltet
+    sowohl die grafische Oberfläche als auch die Netzwerkkommunikation.
+  </p>
+  <ul>
+    <li>
+      Die Methode <code>los()</code> erstellt das Fenster mit Chatverlauf,
+      Eingabefeld und Senden-Button.
+    </li>
+    <li>Eine separate Methode stellt die Verbindung zum Server her.</li>
+    <li>Ein Listener reagiert auf den <strong>Senden-Button</strong>.</li>
+    <li>
+      Ein weiterer Listener sorgt dafür, dass Nachrichten auch per
+      <strong>Enter-Taste</strong> gesendet werden können.
+    </li>
+  </ul>
+
+  <h3>Übung: Test mit zwei Clients</h3>
+  <p>
+    In einer praktischen Übung wurden zwei Clients lokal gestartet, um die
+    Kommunikation zu testen. Nachrichten wurden erfolgreich über den Server
+    ausgetauscht und korrekt in beiden Fenstern angezeigt.
+  </p>
+
+  <h3>Einführung in PHP</h3>
+  <p>
+    Zum Abschluss der Vorlesung erhielten wir eine Einführung in
+    <strong>PHP</strong>. PHP ist eine serverseitige Skriptsprache, die sich gut
+    für die Entwicklung dynamischer Webseiten eignet.
+  </p>
+  <ul>
+    <li>Verarbeiten von Formularen</li>
+    <li>Zugriff auf Datenbanken</li>
+    <li>Erzeugung dynamischer Inhalte auf Webservern</li>
+  </ul>
+</div>
