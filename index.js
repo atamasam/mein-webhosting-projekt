@@ -6,12 +6,11 @@ const lectures = [
   "content/Semester3/04_content.html",
   "content/Semester3/05_content.html",
   "content/Semester3/06_content.html",
-  "content/Semester3/schwerpunkt.html", // Schwerpunkt als normale Vorlesung behandeln
+  "content/Semester3/schwerpunkt.html",
   "content/Semester4/01_content.html",
   "content/Semester4/02_content.html",
   "content/Semester4/03_content.html",
   "content/Semester4/04_content.html",
-  "content/Semester4/05_content.html",
   "content/Semester4/schwerpunkt.html",
 ];
 

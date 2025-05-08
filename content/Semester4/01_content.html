@@ -30,25 +30,53 @@
     </li>
     <li>
       <strong>Switch:</strong> Multiport-Bridge, die Pakete innerhalb eines
-      Netzwerks weiterleitet.
+      Netzwerks weiterleitet. Eliminieren Kollisionsdomänen (bei
+      Mikrosegmentierung). Switches arbeiten hardwarebasiert.
     </li>
   </ul>
+  <img
+    class="lecture-image"
+    src="pictures/01_content_4Semester/segmentierung_switches.png"
+    alt="Segmentierung mit Switches"
+  />
+  <p class="image_des">Segmentierung mit Switches</p>
 
-  <h3>Java Applets und moderne Alternativen</h3>
+  <h3>Java Applets</h3>
   <p>
-    Java-Applets sind aufgrund von Sicherheitsbedenken kaum noch verbreitet.
-    Stattdessen werden Technologien wie CGI und PHP für dynamische Webinhalte
-    genutzt.
+    Java-Applets ermöglichen Aktivität auf Client-seite. Sie sind jedoch
+    aufgrund von Sicherheitsbedenken kaum noch verbreitet. Stattdessen werden
+    Technologien wie CGI und PHP für dynamische Webinhalte genutzt.
   </p>
+  <img
+    class="lecture-image"
+    src="pictures/01_content_4Semester/java_applets.png"
+    alt="Java Applets"
+  />
+  <p class="image_des">Java Applets in Vereinfachter Darstellung</p>
+  <h3>Moderne Alternativen</h3>
   <ul>
     <li>
       <strong>CGI:</strong> Ermöglicht das Abrufen von mehr als nur statischen
       Daten.
+      <img
+        class="lecture-image"
+        src="pictures/01_content_4Semester/cgi_funktionsweiße.png"
+        alt="CGI"
+      />
+      <p class="image_des">CGI Funktionsweise</p>
     </li>
     <li>
       <strong>PHP:</strong> Eine weit verbreitete Skriptsprache für dynamische
       Inhalte und Datenbankabfragen.
+      <img
+        class="lecture-image"
+        src="pictures/01_content_4Semester/php_funktionsweiße.png"
+        alt="PHP"
+      />
+      <p class="image_des">PHP Funktionsweise</p>
     </li>
+    <li>Java Servlets & JSP</li>
+    <li>JavaScript: node.js und darauf basierende libs/frameworks</li>
   </ul>
 
   <h3>JavaScript-Frameworks</h3>
@@ -68,6 +96,20 @@
       umgewandelt.
     </li>
     <li>Der gesamte Objektgraph wird serialisiert.</li>
+    <pre><code>
+      FileOutputStream fileStream = new FileOutputStream(”MeinSpiel.ser”);
+      ObjectOutputStream os = new ObjectOutputStream(fileStream);
+              os.writeObject(figur1);
+              os.writeObject(figur2);
+              os.writeObject(figur3);
+              os.close();
+    </code></pre>
+    <li>Hierfür muss die Klasse des Objektes "Serializable" implementieren</li>
+    <li>
+      Zudem muss ein try-catch block eingebaut werden da E-A Operationen
+      Exceptions auslösen können
+    </li>
+    <li>Mit transient werden Instanzvariables nicht gespeichert</li>
   </ul>
 
   <h3>Deserialisierung</h3>
@@ -75,7 +117,98 @@
     Bei der Deserialisierung werden Objekte in ihren ursprünglichen Zustand
     zurückgeführt.
   </p>
+  <pre><code>
+    FileInputStream fileStream = new FileInputStream("MeinSpiel.ser")
+    ObjectInputStream is = new ObjectInputStream(fileStream);
+    Spielfigur einsWiederhergestellt = (Spielfigur) is.readObject();
+    Spielfigur zweiWiederhergestellt = (Spielfigur) is.readObject();
+    Spielfigur dreiWiederhergestellt = (Spielfigur) is.readObject();
+    is.close();
+  </code></pre>
   <ul>
+    <ol>
+      <li>Das Objekt wird aus dem Strom gelesen.</li>
+      <li>Die JVM bestimmt die Klasse des Objekts.</li>
+      <li>
+        Die JVM findet und lädt die Klasse – andernfalls wird eine Exception
+        ausgelöst.
+      </li>
+      <li>
+        Die Instanzvariablen des Objekts erhalten die Werte aus dem
+        serialisierten Zustand.
+      </li>
+    </ol>
     <li>Fehlerhafte Typzuweisungen können zu Problemen führen.</li>
   </ul>
+  <h3>Einführung in die Dateiverwaltung</h3>
+  <p>
+    Zur Speicherung von Daten wird der <code>FileWriter</code> verwendet. Mit
+    diesem kann eine Datei geöffnet oder erstellt werden, und Daten in die Datei
+    geschrieben werden.
+  </p>
+  <p>
+    Für den Zugriff auf Dateien wird die <code>File</code>-Klasse verwendet, mit
+    der es möglich ist, Objekte zu erzeugen, die eine Datei oder einen Pfad
+    repräsentieren. Auch das Erstellen neuer Verzeichnisse ist mit dieser Klasse
+    möglich.
+  </p>
+  <p>
+    Zum effizienteren Schreiben von Daten wird der
+    <code>BufferedWriter</code> genutzt. Dieser sammelt Daten in einem Puffer
+    und schreibt sie erst dann in die Datei, wenn der Puffer voll ist.
+  </p>
+  <p>
+    Ähnlich funktioniert das Lesen von Dateien mit einem
+    <code>FileReader</code> und einem <code>BufferedReader</code>. Der
+    <code>BufferedReader</code> liest Zeile für Zeile und verarbeitet jede Zeile
+    nacheinander.
+  </p>
+
+  <h3>Einen String aus einer Textdatei lesen</h3>
+  <pre><code>
+    try{
+      File meineDatei = new File("files/duda.txt");
+      FileReader fileReader = new FileReader(meineDatei);
+
+      BufferedReader reader = new BufferedReader(fileReader);
+
+      String zeile = null;
+
+      while((zeile = reader.readLine()) != null){
+          System.out.println(zeile);
+      }
+      reader.close();
+
+  }
+  catch(Exception ex){
+      ex.printStackTrace();
+  }
+  </code></pre>
+  <h3>Einen String in eine Textdatei schreiben (kopieren)</h3>
+  <pre><code>
+    try{
+
+      File dir = new File("files");
+      String dirPath = dir.getAbsolutePath();
+
+      File tFile = new File("files/names.txt");
+      FileReader fileReader = new FileReader(tFile);
+      BufferedReader reader = new BufferedReader(fileReader);
+
+      FileWriter cFile = new FileWriter(dirPath + "/copy.txt");  
+
+      String zeile = null;
+
+      while((zeile = reader.readLine()) != null){
+          cFile.write(zeile + "\n");
+      }
+
+      cFile.close();
+      reader.close();
+
+      }
+      catch(Exception ex){
+          ex.printStackTrace();
+      }
+  </code></pre>
 </div>

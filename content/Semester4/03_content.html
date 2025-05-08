@@ -1,5 +1,5 @@
 <div>
-  <h2>Vorlesung 3: Messaging-Client mit Multithreading (14.04.2025)</h2>
+  <h2>Vorlesung 2: Netzwerkprogrammierung und Threads II (14.04.2025)</h2>
   <p>
     In der heutigen Lehrveranstaltung haben wir die Erstellung eines
     Messaging-Clients besprochen, der Benutzern das Austauschen von Nachrichten
@@ -27,35 +27,6 @@
     den Server.
   </p>
 
-  <h3>Multithreading und Threads in Java</h3>
-  <p>
-    Threads ermöglichen das gleichzeitige Senden und Empfangen von Nachrichten
-    und verhindern, dass die Anwendung blockiert. Mithilfe von Multithreading
-    bleibt die Oberfläche reaktionsschnell.
-  </p>
-  <p>
-    In Java erfolgt die Multithread-Programmierung mit der Klasse
-    <code>Thread</code> oder dem Interface <code>Runnable</code>. Die
-    auszuführende Logik wird in der Methode <code>run()</code> definiert.
-  </p>
-
-  <h4>Zustände eines Threads</h4>
-  <ul>
-    <li>
-      <strong>New:</strong> Der Thread wurde erstellt, aber noch nicht
-      gestartet.
-    </li>
-    <li><strong>Runnable:</strong> Der Thread ist bereit zur Ausführung.</li>
-    <li><strong>Running:</strong> Der Thread wird aktuell ausgeführt.</li>
-    <li>
-      <strong>Terminated:</strong> Der Thread hat seine Ausführung beendet.
-    </li>
-  </ul>
-  <p>
-    Die Steuerung übernimmt der <strong>Thread-Scheduler</strong>, der bestimmt,
-    wann welcher Thread ausgeführt wird.
-  </p>
-
   <h4>Probleme bei paralleler Ausführung</h4>
   <ul>
     <li>
@@ -79,4 +50,117 @@
     sie an alle verbundenen Clients. Der Client zeigt empfangene Nachrichten in
     der Konsole an.
   </p>
+  <h3>EinfacherChatClient</h3>
+  <pre><code>
+    import java.awt.*;
+    import java.awt.event.*;
+    import java.io.*;
+    import java.net.*;
+    import java.nio.charset.StandardCharsets;
+    import javax.swing.*;
+
+    public class EinfacherChatClient {
+
+    JTextArea eingehend;
+    JTextField ausgehend;
+    BufferedReader reader;
+    PrintWriter writer;
+    Socket sock;
+    private static final String BENUTZERNAME = "Samuel";
+  
+    public static void main(String[] args) {
+        EinfacherChatClient client = new EinfacherChatClient();
+        client.los();
+    }
+    public void los() {
+        JFrame frame = new JFrame("Lächerlich einfacher Chat-Client");
+        JPanel hauptPanel = new JPanel();
+        eingehend = new JTextArea(15, 20);
+        eingehend.setLineWrap(true);
+        eingehend.setWrapStyleWord(true);
+        eingehend.setEditable(false);
+
+        JScrollPane fScroller = new JScrollPane(eingehend);
+        fScroller.setVerticalScrollBarPolicy
+        (ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        fScroller.setHorizontalScrollBarPolicy
+        (ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        ausgehend = new JTextField(20);
+        ausgehend.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    sendText();
+                }
+            }
+        });
+
+        JButton sendenButton = new JButton("Senden");
+        sendenButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev) {
+                sendText();
+            }
+        });
+
+        hauptPanel.add(fScroller);
+        hauptPanel.add(ausgehend);
+        hauptPanel.add(sendenButton);
+
+        netzwerkEinrichten();
+
+        Thread readerThread = new Thread(new EingehendReader());
+        readerThread.start();
+
+        frame.getContentPane().add(BorderLayout.CENTER, hauptPanel);
+        frame.setSize(400, 500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+    private void netzwerkEinrichten() {
+        try {
+            sock = new Socket("10.180.95.49", 50201);
+            reader = new BufferedReader(new InputStreamReader(sock.getInputStream(), StandardCharsets.UTF_8));
+            writer = new PrintWriter(new OutputStreamWriter(sock.getOutputStream(), StandardCharsets.UTF_8), true);
+            System.out.println("Netzwerkverbindung steht");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void sendText() {
+        try {
+            String text = ausgehend.getText();
+            if (text != null && !text.trim().isEmpty()) {
+                writer.println(BENUTZERNAME + ": " + text);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ausgehend.setText("");
+        ausgehend.requestFocus();
+    }
+
+    public class EingehendReader implements Runnable {
+        public void run() {
+            String nachricht;
+            try {
+                while ((nachricht = reader.readLine()) != null) {
+                    System.out.println("gelesen: " + nachricht);
+                    eingehend.append(nachricht + "\n");
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+      }
+    }
+  </code></pre>
+  <h3>Darstellung des Chat Clients</h3>
+  <img
+    class="lecture-image"
+    src="pictures/01_content_4Semester/chatclient.png"
+    alt="Chat Client"
+  />
+  <p class="image_des">Chat Client</p>
 </div>

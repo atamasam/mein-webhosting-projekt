@@ -1,48 +1,5 @@
 <div>
-  <h2>
-    Vorlesung 2: Einführung in die Datenübertragung und Netzwerkprogrammierung
-    (07.04.2025)
-  </h2>
-  <p>
-    In der zweiten Lektion haben wir uns mit dem Konzept der Datenübertragung
-    beschäftigt und untersucht, wie Informationen in Java gespeichert werden
-    können, um sie für andere Programme zugänglich zu machen. Ein besonderer
-    Fokus lag auf dem Schreiben von Strings in eine Textdatei.
-  </p>
-
-  <h3>Einführung in die Dateiverwaltung</h3>
-  <p>
-    Zur Speicherung von Daten wird der <code>FileWriter</code> verwendet. Mit
-    diesem kann eine Datei geöffnet oder erstellt werden, und Daten in die Datei
-    geschrieben werden.
-  </p>
-  <p>
-    Für den Zugriff auf Dateien wird die <code>File</code>-Klasse verwendet, mit
-    der es möglich ist, Objekte zu erzeugen, die eine Datei oder einen Pfad
-    repräsentieren. Auch das Erstellen neuer Verzeichnisse ist mit dieser Klasse
-    möglich.
-  </p>
-  <p>
-    Zum effizienteren Schreiben von Daten wird der
-    <code>BufferedWriter</code> genutzt. Dieser sammelt Daten in einem Puffer
-    und schreibt sie erst dann in die Datei, wenn der Puffer voll ist.
-  </p>
-  <p>
-    Ähnlich funktioniert das Lesen von Dateien mit einem
-    <code>FileReader</code> und einem <code>BufferedReader</code>. Der
-    <code>BufferedReader</code> liest Zeile für Zeile und verarbeitet jede Zeile
-    nacheinander.
-  </p>
-
-  <h3>Übung: Textdatei kopieren</h3>
-  <p>
-    In der Übung haben wir eine Textdatei in Java „kopiert“, indem wir den
-    Inhalt einer .txt-Datei mit einem <code>BufferedReader</code> und einem
-    <code>FileReader</code> ausgelesen und anschließend mit einem
-    <code>BufferedWriter</code> und einem <code>FileWriter</code> in eine neue
-    Datei geschrieben haben. Dabei wurden Zeilenumbrüche und andere
-    Formatierungen korrekt übernommen.
-  </p>
+  <h2>Vorlesung 2: Netzwerkprogrammierung und Threads I (07.04.2025)</h2>
 
   <h3>Netzwerkprogrammierung mit Sockets</h3>
   <p>
@@ -53,21 +10,41 @@
     Clients verwaltet.
   </p>
 
+  <h4>Übersicht:</h4>
+  <ul>
+    <li><strong>TCP/IP Sockets</strong></li>
+    <li>Client Sockets vs Server Sockets</li>
+    <li>Client-Server-Verbindungen</li>
+  </ul>
+
+  <h3>Chat-Programm im Überblick</h3>
+  <ul>
+    <li>Der Client muss den Server kennen</li>
+    <li>Der Server muss alle Clients kennen</li>
+  </ul>
+
   <h4>Schritte zur Verbindung:</h4>
   <ul>
-    <li>Die Verbindung zwischen dem Server und dem Client herstellen.</li>
-    <li>Nachrichten an den Server senden.</li>
-    <li>Nachrichten vom Server empfangen.</li>
+    <li>
+      Der Client verbindet sich mit dem Server durch eine Socket-Verbindung
+    </li>
+    <li>Der Client sendet eine Nachricht</li>
+    <li>Der Client erhält eine Nachricht vom Server</li>
   </ul>
 
   <h3>Sockets in Java</h3>
   <p>
-    Sockets stellen die Netzwerkverbindung zwischen zwei Geräten dar. In Java
-    wird dafür die IP-Adresse und eine TCP-Portnummer verwendet. Bestimmte
-    Portnummern sind für Dienste wie HTTP oder FTP reserviert, während Ports
-    zwischen 1024 und 65535 in der Regel frei gewählt werden können, jedoch mit
-    dem Systemadministrator abgestimmt werden sollten.
+    Eine Socket-Verbindung bedeutet, dass beide Maschinen Informationen
+    übereinander besitzen, einschließlich ihrer Standorte im Netzwerk
+    (IP-Adresse) und TCP-Portnummer.
   </p>
+  <p>Beispiel für eine Socket-Verbindung:</p>
+  <pre><code>Socket chatSocket = new Socket("196.164.1.103", 5000);</code></pre>
+  <p>
+    Die Klasse <code>Socket</code> gehört zum Paket <code>java.net</code>, daher
+    muss importiert werden:
+  </p>
+  <pre><code>import java.net.*;</code></pre>
   <p>
     Zum Lesen von Daten aus dem Socket wird ein
     <code>InputStreamReader</code> verwendet, der mit einem
@@ -83,4 +60,126 @@
     Server gespeichert und vom Client abgerufen. Der Client gab diese dann in
     der Konsole aus.
   </p>
+  <img
+    class="lecture-image"
+    src="pictures/01_content_4Semester/socket_aufbau.png"
+    alt="Socket Aufbau"
+  />
+  <p class="image_des">Socket Aufbau mit Server & Client</p>
+  <h3>Server:</h3>
+  <pre><code>
+    import java.io.*;
+    import java.net.*;
+
+    public class TDTS {
+    String [] tippListe = {"Tipp1", "Tipp2", "Tipp3", "Tipp4", "Tipp5"};
+
+    public void los(){
+        try (ServerSocket serverSock = new ServerSocket(4242)) {
+            while(true) {
+                Socket sock = serverSock.accept();
+                PrintWriter writer = new PrintWriter(sock.getOutputStream(), true);
+                for (int i = 0; i < 4; i++) {
+                    String tipp = getTipp();
+                    writer.println(tipp);
+                }
+                writer.close();
+                System.out.println("Tips sent to client.");
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    private String getTipp (){
+        int zufallszahl = (int) (Math.random() * tippListe.length);
+        return tippListe[zufallszahl];
+    }   public static void main (String [] args) {
+        TDTS server = new TDTS();
+        server.los();
+    }
+    }
+  </code></pre>
+  <h3>Client</h3>
+  <pre><code>
+    import java.io.*;
+    import java.net.*;
+
+    public class TDTC {
+
+    public void los() {
+        try {
+            Socket s = new Socket("127.0.0.1", 4242);
+            InputStreamReader streamReader = new InputStreamReader(s.getInputStream());
+            BufferedReader reader = new BufferedReader(streamReader);
+            String tipp;
+            while ((tipp = reader.readLine()) != null) {
+                System.out.println("Tipp des Tages: " + tipp);
+            }
+            reader.close();
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        TDTC client = new TDTC();
+        client.los(); 
+    }
+    }
+  </code></pre>
+  <h3>Multithreading und Threads in Java</h3>
+  <p>
+    Threads ermöglichen das gleichzeitige Senden und Empfangen von Nachrichten
+    und verhindern, dass die Anwendung blockiert. Mithilfe von Multithreading
+    bleibt die Oberfläche reaktionsschnell.
+  </p>
+
+  <h3>Wie man einen Thread zur Ausführung bringt</h3>
+  <ol>
+    <li>
+      Ein <code>Runnable</code>-Objekt erstellen (der „Job“ des Threads):<br />
+      <code>Runnable threadJob = new MeinRunnable();</code>
+    </li>
+    <li>
+      Einen <code>Thread</code> (den „Arbeiter“) erstellen und ihm das Runnable
+      übergeben:<br />
+      <code>Thread meinThread = new Thread(threadJob);</code>
+    </li>
+    <li>
+      Den Thread starten:<br />
+      <code>meinThread.start();</code>
+    </li>
+  </ol>
+
+  <p>
+    Wichtig: Das Interface <code>Runnable</code> implementieren (gehört zum
+    Paket <code>java.lang</code>). Es enthält nur eine Methode:
+  </p>
+  <pre><code>public void run()</code></pre>
+  <p>In diese Methode schreibt man die Logik, die der Thread ausführen soll.</p>
+
+  <h4>Zustände eines Threads</h4>
+  <p>Ein Thread durchläuft folgende Zustände:</p>
+  <ul>
+    <li>
+      <strong>New:</strong> Der Thread wurde erstellt, aber noch nicht
+      gestartet.
+    </li>
+    <li><strong>Runnable:</strong> Der Thread ist bereit zur Ausführung.</li>
+    <li><strong>Running:</strong> Der Thread wird aktuell ausgeführt.</li>
+    <li>
+      <strong>Terminated:</strong> Der Thread hat seine Ausführung beendet.
+    </li>
+  </ul>
+  <p>
+    Die Verwaltung dieser Zustände übernimmt der
+    <strong>Thread-Scheduler</strong>.
+  </p>
+
+  <img
+    class="lecture-image"
+    src="pictures/01_content_4Semester/threads_lebenszyklus.png"
+    alt="Zustände eines Threads"
+  />
+  <p class="image_des">Darstellung der Lebensphasen eines Threads</p>
 </div>
