@@ -6,44 +6,6 @@
     Servers und der Gestaltung einer grafischen Oberfläche für den Client.
   </p>
 
-  <h3>Server mit Multithreading</h3>
-  <p>
-    Der Server wurde so programmiert, dass er mehrere Clients gleichzeitig
-    bedienen kann. Ein <strong>ServerSocket</strong> nimmt Verbindungen auf Port
-    <code>4243</code> an. Für jeden neuen Client wird ein eigener
-    <strong>Thread</strong> gestartet.
-  </p>
-  <p>
-    Die Kommunikation zwischen Server und Clients übernimmt eine innere Klasse
-    namens <code>ClientHandler</code>, die für jede Client-Verbindung zuständig
-    ist. Empfangen Nachrichten werden an alle verbundenen Clients verteilt.
-  </p>
-
-  <h3>Grafische Oberfläche des Clients</h3>
-  <p>
-    Der Client wurde benutzerfreundlich gestaltet. Eine eigene Klasse verwaltet
-    sowohl die grafische Oberfläche als auch die Netzwerkkommunikation.
-  </p>
-  <ul>
-    <li>
-      Die Methode <code>los()</code> erstellt das Fenster mit Chatverlauf,
-      Eingabefeld und Senden-Button.
-    </li>
-    <li>Eine separate Methode stellt die Verbindung zum Server her.</li>
-    <li>Ein Listener reagiert auf den <strong>Senden-Button</strong>.</li>
-    <li>
-      Ein weiterer Listener sorgt dafür, dass Nachrichten auch per
-      <strong>Enter-Taste</strong> gesendet werden können.
-    </li>
-  </ul>
-
-  <h3>Übung: Test mit zwei Clients</h3>
-  <p>
-    In einer praktischen Übung wurden zwei Clients lokal gestartet, um die
-    Kommunikation zu testen. Nachrichten wurden erfolgreich über den Server
-    ausgetauscht und korrekt in beiden Fenstern angezeigt.
-  </p>
-
   <h3>Einführung in PHP</h3>
   <p>
     Zum Abschluss der Vorlesung erhielten wir eine Einführung in
@@ -55,6 +17,7 @@
     <li>Zugriff auf Datenbanken</li>
     <li>Erzeugung dynamischer Inhalte auf Webservern</li>
   </ul>
+
   <h3>Formularverarbeitung mit $_POST</h3>
   <p>
     Es wurde die superglobale Variable <code>$_POST</code> eingeführt, die alle
@@ -105,4 +68,80 @@
     Diese Aufgabe verdeutlichte die praktische Anwendung der Kombination aus
     <strong>PHP</strong> und <strong>MySQL</strong> in dynamischen Webprojekten.
   </p>
+
+  <h3>PHP in der Praxis: Dynamische Inhalte & XAMPP</h3>
+  <p>
+    Mit <strong>PHP</strong> können Inhalte von Webseiten serverseitig
+    manipuliert werden, bevor die Seite an den Browser des Clients ausgeliefert
+    wird. Dadurch lassen sich
+    <strong>dynamische HTML-Seiten</strong> generieren.
+  </p>
+  <p>
+    In der Vorlesung nutzten wir <strong>XAMPP 7.4.33-0</strong> zur lokalen
+    Serverausführung.
+  </p>
+
+  <h3>Übung: Alien-Meldung per Formular</h3>
+  <p>
+    Ziel der Übung war es, ein Formular zu gestalten, über das man einen Bericht
+    über Aliens abgeben konnte. Das Formular wurde über PHP verarbeitet.
+  </p>
+  <img
+    class="lecture-image"
+    src="pictures/04_content_4Semester/alien_formular.png"
+    alt="Formular zur Alien-Meldung"
+  />
+  <p class="image_des">
+    Darstellung des Formulars zur Erfassung von Alien-Berichten
+  </p>
+
+  <h3>Ergebnisanzeige nach dem Absenden</h3>
+  <p>
+    Nach dem Absenden wurde der eingereichte Bericht dynamisch auf einer
+    PHP-Seite angezeigt.
+  </p>
+  <img
+    class="lecture-image"
+    src="pictures/04_content_4Semester/alien_bericht.png"
+    alt="Dynamische Anzeige des Berichts"
+  />
+  <p class="image_des">Anzeige des Nutzerberichts nach dem Absenden</p>
+  <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;de&quot;&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;title&gt;Von Aliens entführt – eine Entführung melden&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;h2&gt;Von Aliens entführt – eine Entführung melden&lt;/h2&gt;
+
+      &lt;?php
+        $wann_geschah_es = htmlspecialchars($_POST['wanngeschahes']);
+        $wie_lange = htmlspecialchars($_POST['wielange']);
+        $alien_beschreibung = htmlspecialchars($_POST['beschreibung']);
+        $fang_gesehen = htmlspecialchars($_POST['fanggesehen']);
+        $email = htmlspecialchars($_POST['email']);
+
+        echo 'Vielen Dank für den Bericht.&lt;br /&gt;';
+        echo 'Sie wurden ' . $wann_geschah_es . ' entführt und waren ' . $wie_lange . ' weg.&lt;br /&gt;';
+        echo 'Beschreiben Sie sie: ' . $alien_beschreibung . '&lt;br /&gt;';
+        echo 'War Fang da? ' . $fang_gesehen . '&lt;br /&gt;';
+        echo 'Ihre E-Mail-Adresse: ' . $email;
+      ?&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;
+  </code></pre>
+  <h3>Speicherung in der Datenbank</h3>
+  <p>
+    Der übermittelte Bericht wurde in einer MySQL-Datenbank gespeichert, die
+    über den Apache-Server im XAMPP-Paket verwaltet wurde.
+  </p>
+  <img
+    class="lecture-image"
+    src="pictures/04_content_4Semester/alien_datenbank.png"
+    alt="Alien-Bericht in der SQL-Datenbank"
+  />
+  <p class="image_des">Eintrag in der MySQL-Datenbank</p>
 </div>

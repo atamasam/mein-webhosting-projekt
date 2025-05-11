@@ -3,11 +3,16 @@
 
   <h3>Netzwerkprogrammierung mit Sockets</h3>
   <p>
-    Im weiteren Verlauf der Vorlesung haben wir uns mit der
-    Netzwerkkommunikation über Sockets beschäftigt. Es wurde erläutert, wie
-    Daten zwischen einem Client und einem Server ausgetauscht werden können. Der
-    Client muss dabei den Server kennen, während der Server alle verbundenen
-    Clients verwaltet.
+    Nachdem wir die Kommunikation mit Dateien kennengelernt hatten, erweiterten
+    wir unser Wissen auf die Netzwerkkommunikation. Ziel war es, Daten zwischen
+    zwei Maschinen auszutauschen – etwa zwischen einem Client und einem Server.
+  </p>
+  <p>
+    Der Client muss dabei den Server kennen, während der Server alle verbundenen
+    Clients verwalten kann. Die Verbindung erfolgt über sogenannte
+    <strong>Sockets</strong>, die eine Netzwerkverbindung zwischen zwei Geräten
+    darstellen. In Java wird dafür die IP-Adresse und die TCP-Portnummer
+    benötigt.
   </p>
 
   <h4>Übersicht:</h4>
@@ -39,44 +44,49 @@
     (IP-Adresse) und TCP-Portnummer.
   </p>
   <p>Beispiel für eine Socket-Verbindung:</p>
-  <pre><code>Socket chatSocket = new Socket("196.164.1.103", 5000);</code></pre>
-  <p>
-    Die Klasse <code>Socket</code> gehört zum Paket <code>java.net</code>, daher
-    muss importiert werden:
-  </p>
+  <pre><code>Socket sock = new Socket("192.168.3.113", 4000);</code></pre>
+  <p>Die Klasse <code>Socket</code> gehört zum Paket <code>java.net</code>:</p>
   <pre><code>import java.net.*;</code></pre>
+  <p>Zum Lesen:</p>
+  <pre><code>
+InputStreamReader streamReader = new InputStreamReader(s.getInputStream());
+BufferedReader reader = new BufferedReader(streamReader);
+  </code></pre>
+  <p>Zum Schreiben:</p>
+  <pre><code>
+PrintWriter writer = new PrintWriter(sock.getOutputStream());
+writer.println("Test Text");
+  </code></pre>
   <p>
-    Zum Lesen von Daten aus dem Socket wird ein
-    <code>InputStreamReader</code> verwendet, der mit einem
-    <code>BufferedReader</code> verbunden wird. Zum Schreiben in den Socket wird
-    ein <code>PrintWriter</code> eingesetzt, der Nachrichten an den Server
-    sendet.
+    Ports zwischen 1024 und 65535 sind frei nutzbar, sollten aber mit dem
+    Systemadministrator abgestimmt werden.
   </p>
 
   <h3>Übung: Tipps des Tages austauschen</h3>
   <p>
-    In dieser Übung haben wir einen Client und einen Server programmiert, die
-    „Tipps des Tages“ austauschten. Die Tipps wurden als Zeichenketten auf dem
-    Server gespeichert und vom Client abgerufen. Der Client gab diese dann in
-    der Konsole aus.
+    Wir programmierten einen einfachen Server und Client, die über eine
+    Socket-Verbindung mehrere Tipps austauschten. Diese Tipps wurden als
+    Zeichenketten auf dem Server gespeichert und vom Client in der Konsole
+    ausgegeben.
   </p>
   <img
     class="lecture-image"
-    src="pictures/01_content_4Semester/socket_aufbau.png"
+    src="pictures/02_content_4Semester/socket_aufbau.png"
     alt="Socket Aufbau"
   />
   <p class="image_des">Socket Aufbau mit Server & Client</p>
-  <h3>Server:</h3>
+
+  <h3>Server</h3>
   <pre><code>
-    import java.io.*;
-    import java.net.*;
+import java.io.*;
+import java.net.*;
 
-    public class TDTS {
-    String [] tippListe = {"Tipp1", "Tipp2", "Tipp3", "Tipp4", "Tipp5"};
+public class TDTS {
+    String[] tippListe = {"Tipp1", "Tipp2", "Tipp3", "Tipp4", "Tipp5"};
 
-    public void los(){
+    public void los() {
         try (ServerSocket serverSock = new ServerSocket(4242)) {
-            while(true) {
+            while (true) {
                 Socket sock = serverSock.accept();
                 PrintWriter writer = new PrintWriter(sock.getOutputStream(), true);
                 for (int i = 0; i < 4; i++) {
@@ -90,21 +100,25 @@
             ex.printStackTrace();
         }
     }
-    private String getTipp (){
+
+    private String getTipp() {
         int zufallszahl = (int) (Math.random() * tippListe.length);
         return tippListe[zufallszahl];
-    }   public static void main (String [] args) {
+    }
+
+    public static void main(String[] args) {
         TDTS server = new TDTS();
         server.los();
     }
-    }
+}
   </code></pre>
+
   <h3>Client</h3>
   <pre><code>
-    import java.io.*;
-    import java.net.*;
+import java.io.*;
+import java.net.*;
 
-    public class TDTC {
+public class TDTC {
 
     public void los() {
         try {
@@ -121,65 +135,76 @@
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         TDTC client = new TDTC();
-        client.los(); 
+        client.los();
     }
-    }
+}
   </code></pre>
+
   <h3>Multithreading und Threads in Java</h3>
   <p>
-    Threads ermöglichen das gleichzeitige Senden und Empfangen von Nachrichten
-    und verhindern, dass die Anwendung blockiert. Mithilfe von Multithreading
-    bleibt die Oberfläche reaktionsschnell.
+    Ein Chat-Client muss gleichzeitig Nachrichten senden und empfangen können.
+    Damit dies möglich ist, kommen <strong>Threads</strong> zum Einsatz. Threads
+    ermöglichen parallele Prozesse, was die Benutzeroberfläche reaktionsschnell
+    hält.
+  </p>
+  <p>Beispielhafte Thread-Erstellung:</p>
+  <pre><code>
+Thread t = new Thread();
+t.start();
+  </code></pre>
+  <p>
+    Um einem Thread eine Aufgabe zu geben, wird ein
+    <code>Runnable</code> übergeben, dessen <code>run()</code>-Methode
+    ausgeführt wird:
   </p>
 
   <h3>Wie man einen Thread zur Ausführung bringt</h3>
   <ol>
     <li>
-      Ein <code>Runnable</code>-Objekt erstellen (der „Job“ des Threads):<br />
       <code>Runnable threadJob = new MeinRunnable();</code>
     </li>
     <li>
-      Einen <code>Thread</code> (den „Arbeiter“) erstellen und ihm das Runnable
-      übergeben:<br />
       <code>Thread meinThread = new Thread(threadJob);</code>
     </li>
     <li>
-      Den Thread starten:<br />
       <code>meinThread.start();</code>
     </li>
   </ol>
-
-  <p>
-    Wichtig: Das Interface <code>Runnable</code> implementieren (gehört zum
-    Paket <code>java.lang</code>). Es enthält nur eine Methode:
-  </p>
-  <pre><code>public void run()</code></pre>
-  <p>In diese Methode schreibt man die Logik, die der Thread ausführen soll.</p>
+  <pre><code>public void run() { ... }</code></pre>
 
   <h4>Zustände eines Threads</h4>
-  <p>Ein Thread durchläuft folgende Zustände:</p>
   <ul>
-    <li>
-      <strong>New:</strong> Der Thread wurde erstellt, aber noch nicht
-      gestartet.
-    </li>
-    <li><strong>Runnable:</strong> Der Thread ist bereit zur Ausführung.</li>
-    <li><strong>Running:</strong> Der Thread wird aktuell ausgeführt.</li>
-    <li>
-      <strong>Terminated:</strong> Der Thread hat seine Ausführung beendet.
-    </li>
+    <li><strong>New:</strong> Thread erzeugt, aber nicht gestartet</li>
+    <li><strong>Runnable:</strong> Wartet auf Ausführung</li>
+    <li><strong>Running:</strong> Wird aktuell ausgeführt</li>
+    <li><strong>Blocked/Waiting:</strong> Wartet auf Ressourcen</li>
+    <li><strong>Terminated:</strong> Thread beendet</li>
   </ul>
-  <p>
-    Die Verwaltung dieser Zustände übernimmt der
-    <strong>Thread-Scheduler</strong>.
-  </p>
-
+  <p>Gesteuert vom Thread-Scheduler</p>
   <img
     class="lecture-image"
-    src="pictures/01_content_4Semester/threads_lebenszyklus.png"
+    src="pictures/02_content_4Semester/threads_lebenszyklus.png"
     alt="Zustände eines Threads"
   />
   <p class="image_des">Darstellung der Lebensphasen eines Threads</p>
+
+  <h3>Gleichzeitigkeitsprobleme & Synchronisation</h3>
+  <p>
+    Beim Zugriff mehrerer Threads auf dieselbe Ressource kann es zu
+    <strong>Race Conditions</strong> oder <strong>Deadlocks</strong> kommen. Um
+    das zu verhindern, nutzt man Synchronisation.
+  </p>
+  <p>Beispiel:</p>
+  <pre><code>
+synchronized void kritischerBereich() {
+    // nur ein Thread zur Zeit erlaubt
+}
+  </code></pre>
+  <p>
+    Die Verwendung von <code>synchronized</code> schützt kritische Bereiche,
+    kann aber auch zu Leistungseinbußen führen, wenn Threads warten müssen.
+  </p>
 </div>

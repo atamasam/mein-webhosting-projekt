@@ -35,6 +35,9 @@ function showContent(lecture) {
       nextButton.classList.remove("hide");
       nextButton.classList.add("show");
       nextButton.style.display = "block";
+
+      // Seite nach oben scrollen
+      window.scrollTo(0, 0);
     });
 }
 

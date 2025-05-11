@@ -1,24 +1,97 @@
 <div>
   <h2 class="schwerpunkt">
-    Schwerpunkt: Netzwerkbasierte Anwendungen & Datenbankintegration
+    Schwerpunkt: REST-Prinzipien und API-Design für Einsteiger
   </h2>
+
   <p>
-    In diesem Semester lag der Fokus auf der Entwicklung verteilter Systeme und
-    netzwerkbasierter Anwendungen. Der Einstieg erfolgte über das
-    Client-Server-Modell und grundlegende Konzepte der Netzwerkkommunikation,
-    inklusive Socket-Programmierung in Java.
+    In diesem Schwerpunkt geht es um moderne Webschnittstellen – sogenannte
+    REST-APIs –, die es ermöglichen, Daten strukturiert und effizient zwischen
+    Clients und Servern auszutauschen. REST steht für
+    <strong>Representational State Transfer</strong> und ist ein Architekturstil
+    für Webanwendungen.
   </p>
+
   <p>
-    Ergänzt wurde dies durch praktische Projekte wie die Entwicklung eines
-    Messaging-Clients mit grafischer Benutzeroberfläche und einem
-    Multithreading-fähigen Server. Besonderer Wert wurde auf die sichere und
-    effiziente Kommunikation über das Netzwerk gelegt.
+    Eine klassische HTML-Seite sendet ein Formular per <code>POST</code> und
+    erhält als Antwort eine neue HTML-Seite. Eine REST-API hingegen sendet Daten
+    (z.&nbsp;B. JSON) und erhält Daten zurück – unabhängig vom Layout.
   </p>
+
+  <h3>Typische HTTP-Methoden in REST</h3>
+  <ul>
+    <li>
+      <strong>GET</strong> – Daten abrufen (z.&nbsp;B. alle Alien-Berichte
+      anzeigen)
+    </li>
+    <li>
+      <strong>POST</strong> – Neue Daten erstellen (z.&nbsp;B. neuen Bericht
+      senden)
+    </li>
+    <li><strong>PUT</strong> – Vorhandene Daten aktualisieren</li>
+    <li><strong>DELETE</strong> – Daten löschen</li>
+  </ul>
+
+  <h3>Mini-Beispiel: Alien-Bericht per API senden</h3>
   <p>
-    Im zweiten Teil des Semesters lag der Schwerpunkt auf serverseitiger
-    Webentwicklung mit PHP sowie der Integration von MySQL-Datenbanken. Es
-    wurden HTML-Formulare verarbeitet, Benutzereingaben validiert und Daten in
-    Datenbanken gespeichert. Ziel war es, praxisnahe Anwendungen zu entwickeln,
-    die Daten dynamisch verwalten und sicher übertragen können.
+    Statt ein klassisches HTML-Formular zu verwenden, senden wir Daten direkt
+    per JavaScript:
+  </p>
+
+  <pre><code>fetch('https://meinserver/api/aliens', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Samuel',
+    bericht: 'Ich habe ein UFO gesehen!'
+  })
+})
+.then(response => response.json())
+.then(data => console.log('Antwort:', data));
+</code></pre>
+
+  <p>
+    Der Server gibt im Idealfall eine Bestätigung im JSON-Format zurück,
+    z.&nbsp;B.:
+  </p>
+
+  <pre><code>{
+  "status": "erfolgreich",
+  "id": 42
+}</code></pre>
+
+  <h3>Vorteile von REST-APIs</h3>
+  <ul>
+    <li>
+      Frontend (z.&nbsp;B. HTML/JS) und Backend (z.&nbsp;B. PHP, Java) sind klar
+      getrennt
+    </li>
+    <li>
+      Auch andere Systeme (z.&nbsp;B. Mobile Apps) können auf die Daten
+      zugreifen
+    </li>
+    <li>
+      Daten sind leicht austauschbar und maschinenlesbar (z.&nbsp;B. JSON)
+    </li>
+  </ul>
+
+  <h3>Demo-Idee für die Präsentation</h3>
+  <ul>
+    <li>Kleine HTML-Seite mit einem <code>fetch()</code>-Button</li>
+    <li>
+      Ein Klick sendet per <code>POST</code> einen Dummy-Bericht an eine lokale
+      PHP-Datei
+    </li>
+    <li>
+      Diese gibt einfach den Bericht als JSON zurück (z.&nbsp;B. via
+      <code>echo json_encode($_POST);</code>)
+    </li>
+    <li>Die Rückgabe wird in der Konsole oder auf der Seite angezeigt</li>
+  </ul>
+
+  <p>
+    So zeigst du anschaulich, wie ein REST-API-Aufruf funktioniert und warum das
+    eine moderne Alternative zu klassischen HTML-Formularen ist.
   </p>
 </div>

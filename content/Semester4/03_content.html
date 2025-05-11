@@ -1,5 +1,5 @@
 <div>
-  <h2>Vorlesung 2: Netzwerkprogrammierung und Threads II (14.04.2025)</h2>
+  <h2>Vorlesung 3: Netzwerkprogrammierung und Threads II (14.04.2025)</h2>
   <p>
     In der heutigen Lehrveranstaltung haben wir die Erstellung eines
     Messaging-Clients besprochen, der Benutzern das Austauschen von Nachrichten
@@ -24,7 +24,30 @@
   </ul>
   <p>
     Ein <code>ButtonListener</code> überträgt die eingegebenen Nachrichten an
-    den Server.
+    den Server. Außerdem kann per <code>Enter</code>-Taste gesendet werden.
+  </p>
+
+  <h3>Multithreading und Synchronisation</h3>
+  <p>
+    Threads ermöglichen es, gleichzeitig Nachrichten zu senden und zu empfangen,
+    ohne dass die Anwendung blockiert. Die Benutzeroberfläche bleibt durch
+    Multithreading reaktionsschnell, da verschiedene Prozesse parallel ablaufen.
+  </p>
+  <p>
+    In dieser Vorlesung erweiterten wir das Verständnis für Threads um das
+    sogenannte <strong>Producer/Consumer-Problem</strong>:
+  </p>
+  <p>
+    Dabei erzeugt ein Thread (Producer) Daten, die von einem anderen Thread
+    (Consumer) verarbeitet werden. Diese Kommunikation erfordert einen
+    <strong>Puffer</strong>, der als Zwischenspeicher dient. Nur wenn korrekt
+    synchronisiert wird, kommt es nicht zu Datenverlust oder Deadlocks.
+  </p>
+  <p>
+    Java bietet dafür die Methoden <code>wait()</code> und
+    <code>notify()</code>, um den Zugriff auf gemeinsam genutzte Objekte zu
+    koordinieren. Ein Thread, der <code>wait()</code> aufruft, pausiert, bis er
+    über <code>notify()</code> aufgeweckt wird.
   </p>
 
   <h4>Probleme bei paralleler Ausführung</h4>
@@ -37,10 +60,15 @@
       <strong>Deadlocks:</strong> Zwei oder mehr Threads blockieren sich
       gegenseitig dauerhaft.
     </li>
+    <li>
+      <strong>Verlorene Aktualisierungen:</strong> Ein Thread überschreibt die
+      Änderungen eines anderen.
+    </li>
   </ul>
   <p>
     Um solche Probleme zu vermeiden, können kritische Codeabschnitte mit
-    <code>synchronized</code> geschützt werden.
+    <code>synchronized</code> geschützt werden. Dies stellt sicher, dass nur ein
+    Thread gleichzeitig auf einen kritischen Abschnitt zugreift.
   </p>
 
   <h3>Übung: Einfacher Chat-Server und -Client</h3>
@@ -50,16 +78,21 @@
     sie an alle verbundenen Clients. Der Client zeigt empfangene Nachrichten in
     der Konsole an.
   </p>
+  <p>
+    Die Anwendung wurde so erweitert, dass sie sowohl lokal als auch im Netzwerk
+    zwischen mehreren Benutzern kommunizieren kann.
+  </p>
+
   <h3>EinfacherChatClient</h3>
   <pre><code>
-    import java.awt.*;
-    import java.awt.event.*;
-    import java.io.*;
-    import java.net.*;
-    import java.nio.charset.StandardCharsets;
-    import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import javax.swing.*;
 
-    public class EinfacherChatClient {
+public class EinfacherChatClient {
 
     JTextArea eingehend;
     JTextField ausgehend;
@@ -67,11 +100,12 @@
     PrintWriter writer;
     Socket sock;
     private static final String BENUTZERNAME = "Samuel";
-  
+
     public static void main(String[] args) {
         EinfacherChatClient client = new EinfacherChatClient();
         client.los();
     }
+
     public void los() {
         JFrame frame = new JFrame("Lächerlich einfacher Chat-Client");
         JPanel hauptPanel = new JPanel();
@@ -81,10 +115,8 @@
         eingehend.setEditable(false);
 
         JScrollPane fScroller = new JScrollPane(eingehend);
-        fScroller.setVerticalScrollBarPolicy
-        (ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        fScroller.setHorizontalScrollBarPolicy
-        (ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        fScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        fScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         ausgehend = new JTextField(20);
         ausgehend.addKeyListener(new KeyAdapter() {
@@ -117,6 +149,7 @@
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
+
     private void netzwerkEinrichten() {
         try {
             sock = new Socket("10.180.95.49", 50201);
@@ -153,13 +186,14 @@
                 ex.printStackTrace();
             }
         }
-      }
     }
+}
   </code></pre>
+
   <h3>Darstellung des Chat Clients</h3>
   <img
     class="lecture-image"
-    src="pictures/01_content_4Semester/chatclient.png"
+    src="pictures/03_content_4Semester/chatclient.png"
     alt="Chat Client"
   />
   <p class="image_des">Chat Client</p>

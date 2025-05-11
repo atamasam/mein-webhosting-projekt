@@ -17,6 +17,20 @@
     <li>Beispiele für Server: WebServer, Host, Server Web 2.0.</li>
   </ul>
 
+  <h3>Kommunikationsmodell</h3>
+  <p>
+    Eine Netzwerkverbindung kann durch fünf Elemente beschrieben werden:
+    Protokoll, IP-Adresse und Portnummer des lokalen Hosts sowie des fremden
+    Hosts.
+  </p>
+  <p>Beispiel: <code>TCP, 196.8.79.22, 1078, 132.49.2.3, 21</code></p>
+  <p>
+    Die Portnummer spielt eine wichtige Rolle: Es gibt fest vergebene Ports
+    (z. B. 80 für HTTP, 443 für HTTPS), aber auch viele frei verfügbare Ports.
+    Jeder Browser-Tab verwendet z. B. einen anderen Port, damit klar ist, welche
+    Antwort zu welcher Anfrage gehört.
+  </p>
+
   <h3>Netzwerkkommunikation und serielle Technologien</h3>
   <p>
     In einem Netzwerk übernehmen Bridge und Switch eine wichtige Rolle. Sie
@@ -26,7 +40,9 @@
   <ul>
     <li>
       <strong>Bridge:</strong> Verfolgt MAC-Adressen und leitet Pakete gezielt
-      weiter.
+      weiter. Sie führt einen sogenannten <em>Aging-Prozess</em> durch: Neue
+      Clients werden in die Forwarding-Tabelle aufgenommen, veraltete Einträge
+      werden entfernt.
     </li>
     <li>
       <strong>Switch:</strong> Multiport-Bridge, die Pakete innerhalb eines
@@ -40,6 +56,14 @@
     alt="Segmentierung mit Switches"
   />
   <p class="image_des">Segmentierung mit Switches</p>
+
+  <h3>Router</h3>
+  <p>
+    Ein Router stellt die Verbindung zwischen dem lokalen Netzwerk und dem
+    Internet her. Moderne Router enthalten oft integrierte Switches für interne
+    Kommunikation und ermöglichen die Weiterleitung von Datenpaketen über
+    Netzgrenzen hinweg.
+  </p>
 
   <h3>Java Applets</h3>
   <p>
@@ -90,6 +114,11 @@
     Serialisierung ermöglicht das Speichern von Objekten in einer Datei und das
     spätere Wiederherstellen ihres Zustands.
   </p>
+  <p>
+    Dies wird genutzt, um z. B. Spielstände oder Formularzustände zu speichern.
+    Es gibt zwei Wege: manuelles Abspeichern jeder Variable oder die
+    objektorientierte Methode – Serialisierung.
+  </p>
   <ul>
     <li>
       Instanzvariablen werden ausgelesen und in eine computergängige Form
@@ -97,19 +126,22 @@
     </li>
     <li>Der gesamte Objektgraph wird serialisiert.</li>
     <pre><code>
-      FileOutputStream fileStream = new FileOutputStream(”MeinSpiel.ser”);
+      FileOutputStream fileStream = new FileOutputStream("MeinSpiel.ser");
       ObjectOutputStream os = new ObjectOutputStream(fileStream);
-              os.writeObject(figur1);
-              os.writeObject(figur2);
-              os.writeObject(figur3);
-              os.close();
+      os.writeObject(figur1);
+      os.writeObject(figur2);
+      os.writeObject(figur3);
+      os.close();
     </code></pre>
     <li>Hierfür muss die Klasse des Objektes "Serializable" implementieren</li>
     <li>
-      Zudem muss ein try-catch block eingebaut werden da E-A Operationen
+      Zudem muss ein try-catch block eingebaut werden da E/A-Operationen
       Exceptions auslösen können
     </li>
-    <li>Mit transient werden Instanzvariables nicht gespeichert</li>
+    <li>
+      Mit <code>transient</code> werden Instanzvariablen vom Speichern
+      ausgeschlossen
+    </li>
   </ul>
 
   <h3>Deserialisierung</h3>
@@ -118,11 +150,11 @@
     zurückgeführt.
   </p>
   <pre><code>
-    FileInputStream fileStream = new FileInputStream("MeinSpiel.ser")
+    FileInputStream fileStream = new FileInputStream("MeinSpiel.ser");
     ObjectInputStream is = new ObjectInputStream(fileStream);
-    Spielfigur einsWiederhergestellt = (Spielfigur) is.readObject();
-    Spielfigur zweiWiederhergestellt = (Spielfigur) is.readObject();
-    Spielfigur dreiWiederhergestellt = (Spielfigur) is.readObject();
+    Spielfigur eins = (Spielfigur) is.readObject();
+    Spielfigur zwei = (Spielfigur) is.readObject();
+    Spielfigur drei = (Spielfigur) is.readObject();
     is.close();
   </code></pre>
   <ul>
@@ -134,12 +166,12 @@
         ausgelöst.
       </li>
       <li>
-        Die Instanzvariablen des Objekts erhalten die Werte aus dem
-        serialisierten Zustand.
+        Die Instanzvariablen des Objekts erhalten die gespeicherten Werte.
       </li>
     </ol>
     <li>Fehlerhafte Typzuweisungen können zu Problemen führen.</li>
   </ul>
+
   <h3>Einführung in die Dateiverwaltung</h3>
   <p>
     Zur Speicherung von Daten wird der <code>FileWriter</code> verwendet. Mit
@@ -166,49 +198,40 @@
 
   <h3>Einen String aus einer Textdatei lesen</h3>
   <pre><code>
-    try{
+    try {
       File meineDatei = new File("files/duda.txt");
       FileReader fileReader = new FileReader(meineDatei);
-
       BufferedReader reader = new BufferedReader(fileReader);
-
       String zeile = null;
 
-      while((zeile = reader.readLine()) != null){
-          System.out.println(zeile);
+      while ((zeile = reader.readLine()) != null) {
+        System.out.println(zeile);
       }
       reader.close();
-
-  }
-  catch(Exception ex){
+    } catch (Exception ex) {
       ex.printStackTrace();
-  }
+    }
   </code></pre>
+
   <h3>Einen String in eine Textdatei schreiben (kopieren)</h3>
   <pre><code>
-    try{
-
+    try {
       File dir = new File("files");
       String dirPath = dir.getAbsolutePath();
-
       File tFile = new File("files/names.txt");
       FileReader fileReader = new FileReader(tFile);
       BufferedReader reader = new BufferedReader(fileReader);
-
       FileWriter cFile = new FileWriter(dirPath + "/copy.txt");  
-
       String zeile = null;
 
-      while((zeile = reader.readLine()) != null){
-          cFile.write(zeile + "\n");
+      while ((zeile = reader.readLine()) != null) {
+        cFile.write(zeile + "\n");
       }
 
       cFile.close();
       reader.close();
-
-      }
-      catch(Exception ex){
-          ex.printStackTrace();
-      }
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
   </code></pre>
 </div>
