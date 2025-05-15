@@ -89,9 +89,63 @@
     </li>
     <li>Die Rückgabe wird in der Konsole oder auf der Seite angezeigt</li>
   </ul>
+  <h3>Code der Rest-API</h3>
+  <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="de"&gt;
+      &lt;head&gt;
+        &lt;meta charset="UTF-8" /&gt;
+        &lt;title&gt;REST API Demo&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h2&gt;REST API Demo: Alien-Bericht senden&lt;/h2&gt;
+        &lt;button onclick="sendeBericht()"&gt;Bericht senden&lt;/button&gt;
+        &lt;pre id="antwort"&gt;&lt;/pre&gt;
 
-  <p>
-    So zeigst du anschaulich, wie ein REST-API-Aufruf funktioniert und warum das
-    eine moderne Alternative zu klassischen HTML-Formularen ist.
-  </p>
+        &lt;script&gt;
+          function sendeBericht() {
+            fetch("api.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                name: "Samuel",
+                bericht: "Ich habe ein UFO über der DHBW gesehen!",
+              }),
+            })
+              .then((res) =&gt; res.json())
+              .then((data) =&gt; {
+                document.getElementById("antwort").textContent = JSON.stringify(
+                  data,
+                  null,
+                  2
+                );
+              })
+              .catch((err) =&gt; {
+                document.getElementById("antwort").textContent = "Fehler: " + err;
+              });
+          }
+        &lt;/script&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  </code></pre>
+  <h3>Code von api.php</h3>
+  <pre><code>&lt;?php
+    // API-Antwort mit JSON-Header
+    header('Content-Type: application/json');
+
+    // Hole die empfangenen Daten
+    $daten = json_decode(file_get_contents('php://input'), true);
+
+    // Einfache Antwort erzeugen
+    $antwort = [
+      'status' =&gt; 'erfolgreich',
+      'bericht_empfangen' =&gt; $daten['bericht'] ?? null,
+      'name' =&gt; $daten['name'] ?? 'unbekannt'
+    ];
+
+    // JSON zurückgeben
+    echo json_encode($antwort);
+  </code></pre>
 </div>
